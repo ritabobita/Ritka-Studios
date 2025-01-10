@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
-import "./globals.css";
-import Header from './components/Header'; // Import the Header component
+import "./styles/globals.scss";
+import Header from './components/Header/Header'; 
 
 const moderustic = localFont({
   src: [

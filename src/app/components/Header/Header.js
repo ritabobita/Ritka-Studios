@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import Image from 'next/image';
 
 export default function Header() {
@@ -17,16 +17,16 @@ export default function Header() {
             <Link href="/">Home</Link>
           </li>
           <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
-            <Link href="/about">About</Link>
-          </li>
-          <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
-            <Link href="/contact">Contact</Link>
+            <Link href="/shop">Shop</Link>
           </li>
           <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
             <Link href="/seconds">Seconds</Link>
           </li>
           <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
-            <Link href="/shop">Shop</Link>
+            <Link href="/about">About</Link>
+          </li>
+          <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
         </div>
