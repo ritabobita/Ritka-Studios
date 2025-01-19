@@ -4,7 +4,7 @@ import VideoHero from "./components/Video Hero/VideoHero";
 export default function Home() {
   return (
     // tailwind was in className previously
-    <main className="">
+    <main>
       <VideoHero />
     </main>
   );
