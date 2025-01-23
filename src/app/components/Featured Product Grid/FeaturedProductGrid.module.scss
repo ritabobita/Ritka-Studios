@@ -1,54 +1,71 @@
-.products {
-    display: grid;
-    grid-template: repeat(2, 20.625rem) / repeat(4, 16.5rem);
-    grid-template-areas:
-        "product product product product"
-        "product product product product";
-    width: 100%;
-    height: auto;
-    padding: 1.875rem;
-    justify-content: center;
-    grid-gap: 1rem;
-}
-
-.productCard {
+.featuredProductGrid {
     display: flex;
     flex-direction: column;
-    flex-shrink: 1;
-    //border overlap can be mitigated by using before psuedo element
-    border: .5px solid #000;
+    align-items: center;
+    width: 100%;
 
-    .productInfo {
-        font-family: 'Kanit', sans-serif;
-        font-weight: 400;
-        padding: 1rem;
-    }
-}
-
-@media only screen and (max-width: 696px) {
     .products {
         display: grid;
-        grid-template: repeat(3, 15.625rem) / repeat(2, 12.5rem);
+        grid-template: repeat(2, 20.625rem) / repeat(4, 16.5rem);
         grid-template-areas:
-            "product product"
-            "product product"
-            "product product"
-            "product product";
+            "product product product product"
+            "product product product product";
+        width: 100%;
+        height: auto;
+        padding: 1.875rem;
+        justify-content: center;
+        grid-gap: 1rem;
     }
-}
-
-@media only screen and (max-width: 425px) {
-    .products {
-        display: grid;
-        grid-template: repeat(6, 20.625rem) / 15.5rem;
-        grid-template-areas:
-            "product"
-            "product"
-            "product"
-            "product"
-            "product"
-            "product"
-            "product"
-            "product";
+    
+    .productCard {
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 1;
+        //border overlap can be mitigated by using before psuedo element
+        border: .5px solid #000;
+    
+        .productInfo {
+            font-family: 'Kanit', sans-serif;
+            font-weight: 400;
+            padding: 1rem;
+        }
+    }
+    
+    @media only screen and (max-width: 1024px) {
+        .products {
+            grid-template: repeat(2, 20.625rem) / repeat(3, 16.5rem);
+            grid-template-areas:
+                "product product product"
+                "product product product"
+                "product product";
+        }
+    }
+    
+    @media only screen and (max-width: 696px) {
+        .products {
+            display: grid;
+            grid-template: repeat(3, 15.625rem) / repeat(2, 12.5rem);
+            grid-template-areas:
+                "product product"
+                "product product"
+                "product product"
+                "product product";
+        }
+    }
+    
+    @media only screen and (max-width: 425px) {
+        .products {
+            display: grid;
+            grid-template: repeat(6, 20.625rem) / 15.5rem;
+            grid-template-areas:
+                "product"
+                "product"
+                "product"
+                "product"
+                "product"
+                "product"
+                "product"
+                "product";
+        }
     }
 }

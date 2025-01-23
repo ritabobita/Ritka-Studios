@@ -86,8 +86,8 @@ export default function FeaturedProductGrid() {
                     <p className={styles.productPrice}>$100</p>
                 </div>
             </article>
-            <ProductButton className={styles.viewAllProducts} href="/shop">View All Products</ProductButton>
         </section>
+        <ProductButton className={styles.viewAllProducts} href="/shop">View All Products</ProductButton>
         </div>
     )
 }
