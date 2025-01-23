@@ -1,5 +1,6 @@
 'use client'
 import styles from './FeaturedProductGrid.module.scss';
+import ProductButton from '../Product Button/ProductButton';
 
 export default function FeaturedProductGrid() {
     return (
@@ -85,7 +86,7 @@ export default function FeaturedProductGrid() {
                     <p className={styles.productPrice}>$100</p>
                 </div>
             </article>
-            <button className={styles.viewAllProducts}>View All Products</button>
+            <ProductButton className={styles.viewAllProducts} href="/shop">View All Products</ProductButton>
         </section>
         </div>
     )
