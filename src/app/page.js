@@ -4,7 +4,7 @@ import FeaturedProductGrid from "./components/Featured Product Grid/FeaturedProd
 
 export default function Home() {
   return (
-    <main>
+    <main className="HomePage">
       <VideoHero />
       <h2 className="text-center text-6xl font-bold my-24">Our Products</h2>
       <FeaturedProductGrid />

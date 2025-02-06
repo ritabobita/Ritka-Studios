@@ -22,3 +22,12 @@
     text-wrap: balance;
   }
 }
+
+@media only screen and (max-width: 425px) {
+  .HomePage {
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 3rem;
+    }
+  }
+}
