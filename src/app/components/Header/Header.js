@@ -8,7 +8,7 @@ export default function Header() {
       <nav className="flex items-center justify-between flex-wrap bg-transparent px-6">
       <div className={`${styles.logo} flex items-center flex-shrink-0 text-white mr-6`}>
         <Link href="/">
-            <Image className="fill-current mr-2" src="/images/svgviewer-output.svg" alt="Ritka Studios Logo" width={100} height={100} />
+            <Image className="fill-current mr-2" src="/images/Ritka-Header.svg" alt="Ritka Studios Logo" width={100} height={100} />
           </Link>
         </div>
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto max-w-fit">
