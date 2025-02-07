@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function Header() {
   return (
     <header className={styles.header}>
-      <nav className="flex items-center justify-between flex-wrap bg-transparent p-6">
+      <nav className="flex items-center justify-between flex-wrap bg-transparent px-6">
       <div className={`${styles.logo} flex items-center flex-shrink-0 text-white mr-6`}>
         <Link href="/">
             <Image className="fill-current mr-2" src="/images/svgviewer-output.svg" alt="Ritka Studios Logo" width={100} height={100} />
