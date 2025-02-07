@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./styles/globals.scss";
 import Header from './components/Header/Header'; 
-
+import Footer from './components/Footer/Footer';
 const moderustic = localFont({
   src: [
     {
@@ -26,6 +26,7 @@ export default function RootLayout({ children }) {
       <body className={moderustic.className}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
