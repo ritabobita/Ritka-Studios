@@ -111,4 +111,24 @@
             }
         }
     }
+
+    @media only screen and (min-width: 2560px) {
+        .products {
+            grid-template: repeat(2, 26.625rem)/repeat(4, 21.5rem);
+            grid-template-areas:
+                "product product product product"
+                "product product product product";
+        }
+
+        .productCard {
+            .productInfo {
+                font-size: 1.5rem;
+            }
+        }
+
+        .viewAllProducts {
+            font-size: 1.5rem;
+            padding: 1rem 4.6rem;
+        }
+    }
 }
