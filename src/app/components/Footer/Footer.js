@@ -15,18 +15,17 @@ export default function Footer() {
         </div>
           
           <div className={`${styles.quickLinks}`}>
-            {/* <h3 className="text-lg font-semibold mb-4">Quick Links</h3> */}
             <ul className="flex flex-row justify-between items-center">
-              <li><a href="/shop" className="transition-colors">Shop</a></li>
-              <li><a href="/seconds" className="transition-colors">Seconds</a></li>
-              <li><a href="/about" className="transition-colors">About</a></li>
-              <li><a href="/contact" className="transition-colors">Contact</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/seconds">Seconds</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
             </ul>
           </div>
           
           <div className="flex flex-col justify-center items-center mt-3">
             {/* <h3 className="text-xs font-semibold mb-3">See What We're Up To</h3> */}
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="https://www.instagram.com/ritkastudios/" target="_blank" rel="noopener">
                 <Instagram size={24} />
               </a>
           </div>

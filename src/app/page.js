@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <main className="HomePage">
       <VideoHero />
-      <h2 className="text-center text-6xl font-bold my-24">Our Products</h2>
       <FeaturedProductGrid />
     </main>
   );
