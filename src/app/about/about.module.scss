@@ -3,5 +3,32 @@
         p {
             word-spacing: 0.1rem;
         }
+
+        img {
+            width: 20rem;
+        }
+
+        @media (max-width: 768px) {
+            p {
+                width: 20rem;
+            }
+
+            img {
+                width: 22rem
+            }
+        }
+
+        @media (max-width: 480px) {
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                width: 20rem;
+            }
+
+            img {
+                width: 20rem;
+            }
+        }
     }
 }
