@@ -15,7 +15,7 @@ export default function Footer() {
         </div>
           
           <div className={`${styles.quickLinks}`}>
-            <ul className="flex flex-row justify-between items-center">
+            <ul className="flex flex-row justify-center items-center gap-6">
               <li><a href="/shop">Shop</a></li>
               <li><a href="/seconds">Seconds</a></li>
               <li><a href="/about">About</a></li>
