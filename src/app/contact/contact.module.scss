@@ -37,7 +37,27 @@
                 background-color: black;
                 color: white;
               }
+
+              @media (min-width: 2560px) {
+                width: 50%;
+                margin: 0 auto;
+              }
         }
     }
 
+    @media (max-width: 425px) {
+      p {
+        width: 100%;
+      } 
+
+      .ContactPage__container {
+        margin: 0 auto;
+
+        form {
+          input[type=submit] {
+            width: 50%;
+          }
+        }
+      }
+    }
 }
