@@ -5,7 +5,7 @@ export default function About() {
     return (
       <main className={`${styles.AboutPage}`}>
         <h1 className="mt-9 text-4xl text-center font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl">About Ritka Studios</h1>
-        <div className={`${styles.AboutContent} flex flex-row items-start justify-center mt-9 w-full gap-7`}>
+        <div className={`${styles.AboutContent} flex flex-row items-start justify-center my-12 w-full gap-7`}>
           <Image src="/images/placeholder_image_400x600.svg" alt="About Ritka Studios" width={400} height={600} />
             <p className="text-left w-[30rem]">Hi! I'm Rita, the artist behind Ritka Studios.
               My journey with ceramics began three years ago, but my creative path spans many forms of artistic expression. 
