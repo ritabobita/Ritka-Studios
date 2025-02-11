@@ -23,6 +23,14 @@
   }
 }
 
+html {
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 @media only screen and (max-width: 425px) {
   .HomePage {
     h2 {
