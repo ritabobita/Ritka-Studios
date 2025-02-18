@@ -4,7 +4,6 @@ import { useEffect } from 'react'
 
 export default function VideoHero() {
   useEffect(() => {
-    // Handle video visibility
     document.addEventListener('visibilitychange', () => {
       const video = document.querySelector('video')
       if (video) {
