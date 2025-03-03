@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
+import { formattedNumber } from '../../utils/utils';
 import styles from './FeaturedProductGrid.module.scss';
 import ProductButton from '../Product Button/ProductButton';
 import Link from 'next/link';
@@ -41,7 +42,7 @@ export default function FeaturedProductGrid() {
                         />
                         <div className={styles.productInfo}>
                             <h3 className={styles.productName}>{product.name}</h3>
-                            <p className={styles.productPrice}>{productPrice}</p>
+                            <p className={styles.productPrice}>{formattedNumber(productPrice)}</p>
                         </div>
                         </Link>
                     </article>
