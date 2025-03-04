@@ -10,7 +10,30 @@
     }
   }
 
+  .mobileMenu {
+    background-color: aliceblue;
+    width: 50%;
+    z-index: 11;
+    position: absolute;
+    height: 100vh;
+    display: flex;
+  }
+
   a {
     font-size: 1.25rem;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .fullMenu {
+      display: none;
+    }
+
+    .hamburger {
+      display: block;
+    }
   }
 }
