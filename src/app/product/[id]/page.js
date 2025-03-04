@@ -57,12 +57,17 @@ const ProductPage = () => {
 
 
     return (
-                <div key={product.id} className={`${styles.ProductPage}`}>
-                    <h1>{product.name}</h1>
-                    <p>{formattedNumber(productPrice)}</p>
-                    <p>{product.description}</p>
-                    <img src={product.images[0]} alt={product.name} />
+        <div className={`${styles.productPage} flex flex-col items-center justify-center mt-10`}>
+            <section className={`${styles.product} w-[70%] flex flex-row gap-10`}>
+                <img src={product.images[0]} alt={product.name} className={`${styles.productImage}`} />
+                <div key={product.id} className={`${styles.productContent} flex flex-col`}>
+                    <h1 className='text-5xl font-bold mb-4'>{product.name}</h1>
+                    <p className='text-lg font-bold mb-3'>{formattedNumber(productPrice)}</p>
+                    <button className={`${styles.addToCartButton} text-black border border-black px-3 py-4 mb-6 w-[93%]`}>Add to Cart</button>
+                    <p className='text-md mb-2'>{product.description}</p>
                 </div>
+            </section>
+        </div>
     );
 };
 
