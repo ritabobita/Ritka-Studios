@@ -2,6 +2,8 @@
 import { usePathname } from 'next/navigation';
 import styles from './ProductPage.module.scss';
 import { useEffect, useState } from 'react';
+import { formattedNumber } from '../../utils/utils';
+
 
 const ProductPage = () => {
     // const router = useRouter();
@@ -57,7 +59,7 @@ const ProductPage = () => {
     return (
                 <div key={product.id} className={`${styles.ProductPage}`}>
                     <h1>{product.name}</h1>
-                    <p>{productPrice}</p>
+                    <p>{formattedNumber(productPrice)}</p>
                     <p>{product.description}</p>
                     <img src={product.images[0]} alt={product.name} />
                 </div>
