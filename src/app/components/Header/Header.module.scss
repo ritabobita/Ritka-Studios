@@ -36,6 +36,12 @@
   }
 
   @media (max-width: 768px) {
+    .logo {
+      img {
+        margin: 0;
+      }
+    }
+
     .fullMenu {
       display: none;
     }
