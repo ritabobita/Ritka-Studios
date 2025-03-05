@@ -38,6 +38,19 @@ export const CartProvider = ({ children }) => {
     const getTotal = () => cartItems.reduce((total, item) => 
         total + item.price * item.quantity, 0);
 
+    const updateQuantity = (id, change, maxQuantity = null) => {
+        setCartItems(items => items.map(item => {
+            if (item.id === id) {
+                const newQuantity = item.quantity + change;
+                if (maxQuantity === 1 && change > 0) {
+                    return item;
+                }
+                return newQuantity < 1 ? item : { ...item, quantity: newQuantity };
+            }
+            return item;
+        }));
+    };
+
     // Initialize cart from localStorage
     useEffect(() => {
         setCartItems(getStorageItem('cartItems'));
@@ -56,7 +69,8 @@ export const CartProvider = ({ children }) => {
         setCartItems,
         addToCart,
         removeFromCart,
-        getTotal
+        getTotal,
+        updateQuantity
     };
 
     return (

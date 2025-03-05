@@ -5,11 +5,10 @@ import { LucideMinus, LucidePlus, X } from 'lucide-react';
 import { formattedNumber } from '../utils/utils';
 
 export default function Cart() {
-    const { cartItems, removeFromCart, getTotal, handleQuantityChange } = useCart();
+    const { cartItems, removeFromCart, getTotal, updateQuantity } = useCart();
 
     const handleCheckout = () => {
         console.log('Checkout button clicked');
-        // Implement checkout logic here
     };
 
     return (
@@ -31,11 +30,17 @@ export default function Cart() {
                             <div className="flex flex-col items-center justify-center gap-3">
                                 <span>Quantity</span>
                                 <span>
-                                    <button onClick={() => handleQuantityChange(item, item.quantity - 1)} className={`${styles.quantityButton} border border-gray-400 text-black py-2 px-2 hover:bg-gray-200`}>
+                                    <button 
+                                        // onClick={() => updateQuantity(item.id, -1)} 
+                                        className={`${styles.quantityButton} border border-gray-400 text-black py-2 px-2 hover:bg-gray-200`}
+                                    >
                                         <LucideMinus className="w-3 h-3" />
                                     </button>
                                     <span className="mx-2">{item.quantity}</span>
-                                    <button onClick={() => handleQuantityChange(item, item.quantity + 1)} className={`${styles.quantityButton} border border-gray-400 text-black py-2 px-2 hover:bg-gray-200`}>
+                                    <button 
+                                        // onClick={() => updateQuantity(item.id, 1)} 
+                                        className={`${styles.quantityButton} border border-gray-400 text-black py-2 px-2 hover:bg-gray-200`}
+                                    >
                                         <LucidePlus className="w-3 h-3" />
                                     </button>
                                 </span>
