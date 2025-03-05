@@ -3,6 +3,7 @@ import styles from './Cart.module.scss';
 import { useCart } from '../components/Context/CartContext';
 import { LucideMinus, LucidePlus, X } from 'lucide-react';
 import { formattedNumber } from '../utils/utils';
+
 export default function Cart() {
     const { cartItems, removeFromCart, getTotal, handleQuantityChange } = useCart();
 
@@ -43,7 +44,7 @@ export default function Cart() {
                                 <span>Total</span>
                                 <span>{formattedNumber(item.price * item.quantity)}</span>
                             </div>
-                            <button onClick={() => removeFromCart(item)} className={`${styles.trashButton} py-1 px-3 hover:text-gray-500`}>
+                            <button onClick={() => removeFromCart(item.id)} className={`${styles.trashButton} py-1 px-3 hover:text-gray-500`}>
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
