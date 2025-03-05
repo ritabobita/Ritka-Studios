@@ -29,6 +29,10 @@ html {
     display: flex;
     flex-direction: column;
   }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
 }
 
 @media only screen and (max-width: 425px) {
