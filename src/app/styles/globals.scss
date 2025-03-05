@@ -30,8 +30,9 @@ html {
     flex-direction: column;
   }
 
-  .overflow-hidden {
-    overflow: hidden;
+  .mobile-menu-body {
+    opacity: 0.5;
+    pointer-events: none;
   }
 }
 

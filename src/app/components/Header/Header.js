@@ -14,8 +14,10 @@ export default function Header() {
 
     if (!isOpen) {
       document.body.classList.add('overflow-hidden');
+      document.querySelector('main').classList.add('mobile-menu-body');
     } else {
       document.body.classList.remove('overflow-hidden');
+      document.querySelector('main').classList.remove('mobile-menu-body');
     }
   };
 
@@ -61,17 +63,15 @@ export default function Header() {
       </nav>
 
       {/* Menu on tablet and mobile */}
-      {isOpen && (
-          <div className={styles.mobileMenu}>
-            <ul>
-              <li><Link href="/" onClick={handleMenuClick}>Home</Link></li>
-              <li><Link href="/shop" onClick={handleMenuClick}>Shop</Link></li>
-              <li><Link href="/seconds" onClick={handleMenuClick}>Seconds</Link></li>
-              <li><Link href="/about" onClick={handleMenuClick}>About</Link></li>
-              <li><Link href="/contact" onClick={handleMenuClick}>Contact</Link></li>
-            </ul>
-          </div>
-        )}
+      <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ''} p-[1rem]`}>
+        <ul className='flex flex-col gap-4 p-[2rem] border border-black w-full'>
+          <li><Link href="/" onClick={handleMenuClick}>Home</Link></li>
+          <li><Link href="/shop" onClick={handleMenuClick}>Shop</Link></li>
+          <li><Link href="/seconds" onClick={handleMenuClick}>Seconds</Link></li>
+          <li><Link href="/about" onClick={handleMenuClick}>About</Link></li>
+          <li><Link href="/contact" onClick={handleMenuClick}>Contact</Link></li>
+        </ul>
+      </div>
     </header>
   );
 }

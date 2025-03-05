@@ -11,12 +11,20 @@
   }
 
   .mobileMenu {
-    background-color: aliceblue;
+    background-color: white;
     width: 50%;
     z-index: 11;
     position: absolute;
-    height: 100vh;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    height: fill-available;
     display: flex;
+    left: -100%;
+    transition: left 0.5s ease-out;
+
+    &.open {
+      left: 0;
+    }
   }
 
   a {
