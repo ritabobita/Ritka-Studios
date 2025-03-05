@@ -66,7 +66,7 @@ const ProductPage = () => {
                     <h1 className='text-5xl font-bold mb-4'>{product.name}</h1>
                     <p className='text-lg font-bold mb-3'>{formattedNumber(productPrice)}</p>
                     <button 
-                        onClick={() => addToCart(product)} 
+                        onClick={() => addToCart(product, productPrice)} 
                         className={`${styles.addToCartButton} text-black border border-black px-3 py-4 mb-6 w-[93%]`}
                     >
                         Add to Cart
