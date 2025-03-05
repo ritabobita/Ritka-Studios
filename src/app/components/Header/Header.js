@@ -3,11 +3,12 @@ import Link from 'next/link';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuClick, setMenuClick] = useState(false);
+  const mobileMenuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,11 +27,24 @@ export default function Header() {
     toggleMenu();
   }
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target) && isOpen) {
+        toggleMenu();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <header className={styles.header}>
       <nav className="flex items-center justify-between flex-wrap bg-transparent px-6">
       <div className={`${styles.logo} flex items-center flex-shrink-0 text-white mr-6`}>
-        <Link href="/" onClick={handleMenuClick}>
+        <Link href="/">
             <Image className="fill-current mr-2" src="/images/Ritka-Header.svg" alt="Ritka Studios Logo" width={100} height={100} />
         </Link>
         </div>
@@ -63,7 +77,7 @@ export default function Header() {
       </nav>
 
       {/* Menu on tablet and mobile */}
-      <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ''} p-[1rem]`}>
+      <div ref={mobileMenuRef} className={`${styles.mobileMenu} ${isOpen ? styles.open : ''} p-[1rem]`}>
         <ul className='flex flex-col gap-4 p-[2rem] border border-black w-full'>
           <li><Link href="/" onClick={handleMenuClick}>Home</Link></li>
           <li><Link href="/shop" onClick={handleMenuClick}>Shop</Link></li>
