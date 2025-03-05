@@ -3,6 +3,7 @@ import { usePathname } from 'next/navigation';
 import styles from './ProductPage.module.scss';
 import { useEffect, useState } from 'react';
 import { formattedNumber } from '../../utils/utils';
+import { useCart } from '../../components/Context/CartContext';
 
 
 const ProductPage = () => {
@@ -14,6 +15,7 @@ const ProductPage = () => {
     const [prices, setPrices] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const { addToCart } = useCart();
 
     useEffect(() => {
         if (id && id !== 'undefined') {
@@ -63,7 +65,12 @@ const ProductPage = () => {
                 <div key={product.id} className={`${styles.productContent} flex flex-col`}>
                     <h1 className='text-5xl font-bold mb-4'>{product.name}</h1>
                     <p className='text-lg font-bold mb-3'>{formattedNumber(productPrice)}</p>
-                    <button className={`${styles.addToCartButton} text-black border border-black px-3 py-4 mb-6 w-[93%]`}>Add to Cart</button>
+                    <button 
+                        onClick={() => addToCart(product)} 
+                        className={`${styles.addToCartButton} text-black border border-black px-3 py-4 mb-6 w-[93%]`}
+                    >
+                        Add to Cart
+                    </button>
                     <p className='text-md mb-2'>{product.description}</p>
                 </div>
             </section>

@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./styles/globals.scss";
 import Header from './components/Header/Header'; 
 import Footer from './components/Footer/Footer';
+import { CartProvider } from './components/Context/CartContext';
 
 const moderustic = localFont({
   src: [
@@ -25,11 +26,13 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className={`${moderustic.className} flex flex-col min-h-screen`}>
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <CartProvider>
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );
