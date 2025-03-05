@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./styles/globals.scss";
 import Header from './components/Header/Header'; 
 import Footer from './components/Footer/Footer';
+
 const moderustic = localFont({
   src: [
     {
@@ -23,9 +24,11 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={moderustic.className}>
+      <body className={`${moderustic.className} flex flex-col min-h-screen`}>
         <Header />
-        {children}
+        <main className="flex-grow">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

@@ -1,21 +1,73 @@
+'use client';
 import styles from './Cart.module.scss';
+import { useState } from 'react';
 
 export default function Cart() {
-  return (
-    <div className={`${styles.cart} p-4`}>
-      <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
-      <ul className="list-disc pl-5">
-        {/* Cart items will be rendered here */}
-        <li className="mb-2">Item 1 - $10.00</li>
-        <li className="mb-2">Item 2 - $15.00</li>
-        {/* ... existing code ... */}
-      </ul>
-      <div className={`${styles.total} mt-4 p-2 bg-white shadow-md`}>
-        <h2 className="text-xl">Total: $25.00</h2>
-      </div>
-      <button className={`${styles.checkoutButton} mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600`}>
-        Proceed to Checkout
-      </button>
-    </div>
-  );
+    // const [cartItems, setCartItems] = useState([]);
+
+    // const addToCart = (item) => {
+    //     setCartItems([...cartItems, item]);
+    // }; 
+
+    // const removeFromCart = (item) => {
+    //     setCartItems(cartItems.filter(i => i !== item));
+    // };  
+
+    // const getTotal = () => {
+    //     return cartItems.reduce((total, item) => total + item.price, 0);
+    // };
+
+    // const clearCart = () => {
+    //     setCartItems([]);
+    // };
+
+    // const handleCheckout = () => {
+    //     console.log('Checkout button clicked');
+    // };
+
+    // const handleQuantityChange = (item, quantity) => {
+    //     const updatedItems = cartItems.map(i => 
+    //         i.id === item.id ? { ...i, quantity } : i
+    //     );
+    //     setCartItems(updatedItems);
+    // };
+
+    return (
+        <div className={`${styles.cart} p-4`}>
+            <h1 className="text-4xl font-bold mb-4">Shopping Cart</h1>
+            <div className={`${styles.cartContainer} flex flex-row justify-around mt-12 border border-gray-600`}>
+                <div className={`${styles.cartItem} flex flex-row gap-5`}>
+                    <img src="/images/Ritka-Header.svg" alt="Product 1" className="border" />
+                    <div className="flex flex-col items-center justify-center">
+                        <span>Item Name</span>
+                        <span>$10.00</span>
+                    </div>
+                </div>
+                <div className="flex flex-row gap-5 items-center">
+                    <div className="flex flex-col items-center justify-center gap-3">
+                        <span>Quantity</span>
+                        <span>
+                            <button className={`${styles.quantityButton} border border-gray-400 text-black py-1 px-3 hover:bg-gray-200`}>
+                                -
+                            </button>
+                            <span className="mx-2">1</span>
+                            <button className={`${styles.quantityButton} border border-gray-400 text-black py-1 px-3 hover:bg-gray-200`}>
+                                +
+                            </button>
+                        </span>
+                    </div>
+                    <div className="flex flex-col items-center justify-center gap-3">
+                        <span>Total</span>
+                        <span>$10.00</span>
+                    </div>
+                </div>
+            </div>
+            <div className={`${styles.totalContainer} mt-4 flex flex-col items-end`}>
+                <h3 className="text-xl">Subtotal: $25.00</h3>
+            <button className={`${styles.checkoutButton} mt-4 border border-black text-black py-2 px-4 hover:bg-gray-200`}>
+                Proceed to Checkout
+            </button>
+            </div>
+        </div>
+    );
 }
