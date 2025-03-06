@@ -13,29 +13,43 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 export default function Checkout() {
   const [clientSecret, setClientSecret] = useState('')
-  const { cartItems } = useCart()
+  const { cartItems, clearCart } = useCart()
 
   useEffect(() => {
-    // Fetch the client secret when component mounts
+    // Check if this is a return from Stripe
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('session_id')) {
+      console.log('Returned from Stripe checkout');
+      clearCart();
+      window.location.href = '/checkout/success';
+      return;
+    }
+
     const getClientSecret = async () => {
       const secret = await fetchClientSecret(cartItems)
       setClientSecret(secret)
     }
     getClientSecret()
-  }, [cartItems])
-
-  if (!clientSecret) {
-    return <div>Loading...</div>
-  }
+  }, [cartItems, clearCart])
 
   return (
     <div id="checkout">
-      <EmbeddedCheckoutProvider
-        stripe={stripePromise}
-        options={{ clientSecret }}
-      >
-        <EmbeddedCheckout />
-      </EmbeddedCheckoutProvider>
+      {clientSecret && (
+        <EmbeddedCheckoutProvider
+          stripe={stripePromise}
+          options={{
+            clientSecret,
+            onComplete: () => {
+              console.log('Checkout completed');
+              clearCart();
+              window.location.href = '/checkout/success';
+            }
+          }}
+        >
+          <EmbeddedCheckout />
+        </EmbeddedCheckoutProvider>
+      )}
+      {!clientSecret && <div>Loading...</div>}
     </div>
   )
 }

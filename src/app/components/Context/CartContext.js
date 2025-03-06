@@ -21,6 +21,14 @@ export const CartProvider = ({ children }) => {
     const [isHydrated, setIsHydrated] = useState(false);
     const router = useRouter();
 
+    // Add clearCart function with localStorage clearing
+    const clearCart = () => {
+        console.log('Clearing cart...');
+        setCartItems([]);  // Set state first
+        localStorage.setItem('cartItems', JSON.stringify([]));
+        console.log('Cart cleared, new state:', []);
+    };
+
     // Simplified cart operations
     const addToCart = (product, price) => {
         setCartItems(items => {
@@ -63,7 +71,10 @@ export const CartProvider = ({ children }) => {
 
     // Initialize cart from localStorage
     useEffect(() => {
-        setCartItems(getStorageItem('cartItems'));
+        const storedItems = getStorageItem('cartItems');
+        if (storedItems) {
+            setCartItems(storedItems);
+        }
         setIsHydrated(true);
     }, []);
 
@@ -81,7 +92,8 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         getTotal,
         updateQuantity,
-        handleCheckout
+        handleCheckout,
+        clearCart
     };
 
     return (

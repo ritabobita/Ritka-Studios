@@ -1,8 +1,10 @@
+import SuccessSection from '../components/SuccessSection'
 import { redirect } from 'next/navigation'
+import Stripe from 'stripe'
 
-import { stripe } from '../../lib/stripe'
-
+// This is already a server component by default since it's a page.js file
 export default async function Return({ searchParams }) {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   const { session_id } = await searchParams
 
   if (!session_id)
@@ -20,16 +22,6 @@ export default async function Return({ searchParams }) {
   }
 
   if (status === 'complete') {
-    return (
-      <section id="success" className='flex flex-col items-center justify-center mt-20 w-[70%] mx-auto'>
-          <h1 className='text-4xl font-bold mb-4 text-center'>Thank you for your order!</h1>
-          <img src="/images/Oprah-You-Get-A.jpg" alt="Success" className='w-1/2 mx-auto mb-4' />
-          <p className='text-lg text-center'>
-            We appreciate your business! A confirmation email will be sent to{' '}
-          {customerEmail}. If you have any questions, please email:{' '}
-        </p>
-        <a href="mailto:ritkastudios@gmail.com" className='text-blue-500 text-lg'>ritkastudios@gmail.com</a>
-      </section>
-    )
+    return <SuccessSection customerEmail={customerEmail} />
   }
 }
