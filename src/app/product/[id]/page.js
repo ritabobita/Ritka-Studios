@@ -49,7 +49,12 @@ const ProductPage = () => {
         }
     }, [id]);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return (
+        <div className={`${styles.loading} flex flex-col items-center justify-center min-h-[50vh] my-20`}>
+            <div className={`${styles.loadingSpinner} w-10 h-10 border-t-2 border-b-2 border-gray-900 rounded-full animate-spin`}></div>
+            <p className='text-lg font-bold'>Loading...</p>
+        </div>
+    );
     if (error) return <div>Error: {error}</div>;
     if (!product) return <div>No product found.</div>;
 
