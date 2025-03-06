@@ -26,7 +26,6 @@ const ProductPage = () => {
                         throw new Error('Product not found');
                     }
                     const data = await response.json();
-                    console.log(data)
                     setProduct(data);
                 } catch (err) {
                     console.error("Error fetching product:", err.message);
@@ -39,7 +38,6 @@ const ProductPage = () => {
             const fetchPrices = async () => {
                 const response = await fetch('/api/prices');
                 const data = await response.json();
-                console.log(data)
                 setPrices(data);
             };
 
@@ -60,7 +58,7 @@ const ProductPage = () => {
 
     return (
         <div className={`${styles.productPage} flex flex-col items-center justify-center mt-10`}>
-            <section className={`${styles.product} w-[70%] flex flex-row gap-10`}>
+            <section className={`${styles.product} flex flex-row gap-10`}>
                 <img src={product.images[0]} alt={product.name} className={`${styles.productImage}`} />
                 <div key={product.id} className={`${styles.productContent} flex flex-col`}>
                     <h1 className='text-5xl font-bold mb-4'>{product.name}</h1>

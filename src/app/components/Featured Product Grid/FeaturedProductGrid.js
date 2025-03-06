@@ -13,14 +13,12 @@ export default function FeaturedProductGrid() {
         const fetchProducts = async () => {
             const response = await fetch('/api/products');
             const data = await response.json();
-            console.log(data)
             setProducts(data);
         };
 
         const fetchPrices = async () => {
             const response = await fetch('/api/prices');
             const data = await response.json();
-            console.log(data)
             setPrices(data);
         };
 
