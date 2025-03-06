@@ -1,5 +1,6 @@
 'use client';
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 const CartContext = createContext();
 
@@ -18,6 +19,7 @@ const setStorageItem = (key, value) => {
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [isHydrated, setIsHydrated] = useState(false);
+    const router = useRouter();
 
     // Simplified cart operations
     const addToCart = (product, price) => {
@@ -51,6 +53,14 @@ export const CartProvider = ({ children }) => {
         }));
     };
 
+    const handleCheckout = async () => {
+        try {
+            await router.push('/checkout');
+        } catch (error) {
+            console.error('Error initiating checkout:', error);
+        }
+    };
+
     // Initialize cart from localStorage
     useEffect(() => {
         setCartItems(getStorageItem('cartItems'));
@@ -70,7 +80,8 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         getTotal,
-        updateQuantity
+        updateQuantity,
+        handleCheckout
     };
 
     return (
