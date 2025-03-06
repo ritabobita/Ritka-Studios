@@ -55,7 +55,7 @@ export default function Cart() {
             <div className={`${styles.totalContainer} mt-4 flex flex-col items-end`}>
                 <h3 className="text-xl">Subtotal: {formattedNumber(getTotal())}</h3>
                 <button 
-                    onClick={handleCheckout} 
+                    onClick={cartItems.length > 0 ? handleCheckout : null}
                     className={`${styles.checkoutButton} mt-4 border border-black text-black py-2 px-4 hover:bg-gray-200`}
                 >
                     Proceed to Checkout
