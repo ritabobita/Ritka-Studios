@@ -4,6 +4,10 @@
   .logo {
     background-color: transparent;
 
+    @media (max-width: 768px) {
+      margin: 0;
+    }
+
     img {
       width: 140px;
       height: 140px;

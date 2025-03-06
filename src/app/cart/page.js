@@ -22,7 +22,7 @@ export default function Cart() {
                                 <span>{formattedNumber(item.price)}</span>
                             </div>
                         </div>
-                        <div className="flex flex-row items-center gap-12">
+                        <div className={`${styles.cartContent} flex flex-row items-center gap-12`}>
                             <div className="flex flex-col items-center justify-center gap-3">
                                 <span>Quantity</span>
                                 <span>

@@ -1,6 +1,19 @@
 .cart {
   .cartContainer {
     padding: 1rem 0;
+
+    @media (max-width: 425px) {
+      flex-direction: column;
+
+      .cartItem {
+        justify-content: center;
+      }
+
+      .cartContent {
+        justify-content: center;
+        margin-top: 1rem;
+      }
+    }
   }
 
   .cartItem {
