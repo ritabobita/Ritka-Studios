@@ -21,6 +21,10 @@ export async function fetchClientSecret(cartItems) {
       },
       quantity: item.quantity,
     })),
+    billing_address_collection: 'required',
+    shipping_address_collection: {
+      allowed_countries: ['US', 'CA'],
+    },
     mode: 'payment',
     return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
     automatic_tax: { enabled: true },
