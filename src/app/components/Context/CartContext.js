@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 const CartContext = createContext();
 
-// Simplified storage helpers
+// storage helpers
 const getStorageItem = (key) => {
     if (typeof window === 'undefined') return [];
     return JSON.parse(localStorage.getItem(key) || '[]');

@@ -4,11 +4,16 @@ import styles from './Header.module.scss';
 import Image from 'next/image';
 import { Menu, X, ShoppingBasket } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
+import { useCart } from '../Context/CartContext';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [menuClick, setMenuClick] = useState(false);
   const mobileMenuRef = useRef(null);
+
+  const { cartItems } = useCart();
+
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -55,9 +60,14 @@ export default function Header() {
           </Link>
         </div>
 
-        <div className={`${styles.basket} lg:hidden`}>
+        <div className={`${styles.basket} lg:hidden relative`}>
           <Link href="/cart">
             <ShoppingBasket size={24} />
+            {totalItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {totalItems}
+              </span>
+            )}
           </Link>
         </div>
 
@@ -80,9 +90,14 @@ export default function Header() {
               <Link href="/contact">Contact</Link>
             </li>
           </ul>
-          <div className={`${styles.basket} lg:block mb-1`}>
+          <div className={`${styles.basket} lg:block mb-1 relative`}>
             <Link href="/cart">
               <ShoppingBasket size={24} />
+              {totalItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-black text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
             </Link>
           </div>
         </div>
