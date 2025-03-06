@@ -49,7 +49,6 @@ export default function SecondsProductGrid() {
                     );
                 })}
         </section>
-        <ProductButton className={styles.viewAllProducts} href="/shop">View All Products</ProductButton>
         </div>
     )
 }
