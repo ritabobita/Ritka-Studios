@@ -21,7 +21,7 @@ export default function VideoHero() {
       />
       
       <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto">
-        <source src="/videos/HeroVideoPlaceholder.mp4" type="video/mp4" />
+        <source src="/videos/HeroVideoPlaceholder2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -30,17 +30,17 @@ export default function VideoHero() {
       <div className="relative z-10 px-4 mx-auto max-w-screen-xl h-full flex items-center justify-center">
         <div className="text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            Your Headline Here
+          Welcome to Ritka Studios
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl">
-            Your compelling subheading
+            Explore our handcrafted pottery
           </p>
-          <a 
+          {/* <a 
             href="#" 
             className="mt-8 inline-block px-8 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors"
           >
-            Call to Action
-          </a>
+            Explore
+          </a> */}
         </div>
       </div>
     </section>
