@@ -21,15 +21,15 @@ export const CartProvider = ({ children }) => {
     const [isHydrated, setIsHydrated] = useState(false);
     const router = useRouter();
 
-    // Add clearCart function with localStorage clearing
+
     const clearCart = () => {
         console.log('Clearing cart...');
-        setCartItems([]);  // Set state first
+        setCartItems([]); 
         localStorage.setItem('cartItems', JSON.stringify([]));
         console.log('Cart cleared, new state:', []);
     };
 
-    // Simplified cart operations
+
     const addToCart = (product, price) => {
         setCartItems(items => {
             const existingItem = items.find(item => item.id === product.id);
