@@ -24,8 +24,8 @@ export async function GET() {
 
         const result = await client.catalog.list({ types: "ITEM" });
         
-        // Handle BigInt serialization and only return the objects array and return the response object (Square's official structure?)
-        const safeResult = JSON.parse(JSON.stringify(result.response, (_, value) =>
+        // Handle BigInt serialization and only return the objects array
+        const safeResult = JSON.parse(JSON.stringify(result, (_, value) =>
             typeof value === 'bigint' ? value.toString() : value
         ));
 

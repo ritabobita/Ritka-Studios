@@ -58,6 +58,9 @@
 import { useEffect, useState } from 'react';
 import styles from './FeaturedProductGrid.module.scss';
 import Link from 'next/link';
+import ProductButton from '../Product Button/ProductButton';
+import { formattedNumber } from '../../utils/utils';
+
 
 export default function FeaturedProductGrid() {
     const [products, setProducts] = useState([]);
@@ -101,11 +104,13 @@ export default function FeaturedProductGrid() {
                                 <h3 className={styles.productName}>
                                     {product.itemData?.name || 'No name'}
                                 </h3>
+                                <p className={styles.productPrice}>{formattedNumber(product.itemData?.variations[0]?.itemVariationData?.priceMoney?.amount)}</p>
                             </div>
                         </Link>
                     </article>
                 ))}
             </section>
+            <ProductButton className={styles.viewAllProducts} href="/shop">View All Products</ProductButton>
         </div>
     );
 }
