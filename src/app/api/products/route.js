@@ -24,10 +24,8 @@ export async function GET() {
 
         // Get all catalog items with their images
         const result = await client.catalog.list({
-            types: "ITEM,IMAGE"  // This will fetch both items and their images
+            types: "ITEM,IMAGE"  
         });
-
-        console.log('Square API Response:', result); // See what we're getting
 
         const safeResult = JSON.parse(JSON.stringify(result, (_, value) =>
             typeof value === 'bigint' ? value.toString() : value

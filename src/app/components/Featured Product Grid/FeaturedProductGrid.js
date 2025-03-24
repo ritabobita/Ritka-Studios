@@ -61,7 +61,6 @@ import Link from 'next/link';
 import ProductButton from '../Product Button/ProductButton';
 import { formattedNumber } from '../../utils/utils';
 
-
 export default function FeaturedProductGrid() {
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(null);
@@ -74,10 +73,24 @@ export default function FeaturedProductGrid() {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
-                console.log('API response:', data);
 
                 if (data.response?.objects) {
-                    setProducts(data.response.objects);
+                    // Separate items and images
+                    const items = data.response.objects.filter(obj => obj.type === 'ITEM');
+                    const images = data.response.objects.filter(obj => obj.type === 'IMAGE');
+
+                    // Map through items and find their matching images
+                    const productsWithImages = items.map(item => {
+                        const imageId = item.itemData?.imageIds?.[0];
+                        const matchingImage = images.find(img => img.id === imageId);
+                        
+                        return {
+                            ...item,
+                            imageUrl: matchingImage?.imageData?.url || '/placeholder-image.jpg'
+                        };
+                    });
+
+                    setProducts(productsWithImages);
                 } else {
                     setError('No products found');
                 }
@@ -100,6 +113,11 @@ export default function FeaturedProductGrid() {
                 {products.map(product => (
                     <article key={product.id} className={styles.productCard}>
                         <Link href={`/product/${product.id}`}>
+                            <img 
+                                src={product.imageUrl} 
+                                alt={product.itemData?.name || 'Missing image'}
+                                className={styles.productImage}
+                            />
                             <div className={styles.productInfo}>
                                 <h3 className={styles.productName}>
                                     {product.itemData?.name || 'No name'}
