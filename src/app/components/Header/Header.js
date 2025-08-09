@@ -6,7 +6,7 @@ import { Menu, X, ShoppingBasket } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import { useCart } from '../Context/CartContext';
 
-export default function Header() {
+export default function Header({ ecommerceEnabled }) {
   const [isOpen, setIsOpen] = useState(false);
   const [menuClick, setMenuClick] = useState(false);
   const mobileMenuRef = useRef(null);
@@ -77,12 +77,16 @@ export default function Header() {
             <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               <Link href="/">Home</Link>
             </li>
+            {ecommerceEnabled && (
             <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               <Link href="/shop">Shop</Link>
             </li>
+            )}
+            {ecommerceEnabled && (
             <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               <Link href="/seconds">Seconds</Link>
             </li>
+            )}
             <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               <Link href="/about">About</Link>
             </li>
@@ -90,6 +94,7 @@ export default function Header() {
               <Link href="/contact">Contact</Link>
             </li>
           </ul>
+          {ecommerceEnabled && (
           <div className={`${styles.basket} lg:block mb-1 relative`}>
             <Link href="/cart">
               <ShoppingBasket size={24} />
@@ -100,6 +105,7 @@ export default function Header() {
               )}
             </Link>
           </div>
+          )}
         </div>
       </nav>
 
@@ -107,8 +113,8 @@ export default function Header() {
       <div ref={mobileMenuRef} className={`${styles.mobileMenu} ${isOpen ? styles.open : ''} p-[1rem]`}>
         <ul className='flex flex-col gap-4 p-[2rem] border border-black w-full'>
           <li><Link href="/" onClick={handleMenuClick}>Home</Link></li>
-          <li><Link href="/shop" onClick={handleMenuClick}>Shop</Link></li>
-          <li><Link href="/seconds" onClick={handleMenuClick}>Seconds</Link></li>
+          {ecommerceEnabled && <li><Link href="/shop" onClick={handleMenuClick}>Shop</Link></li>}
+          {ecommerceEnabled && <li><Link href="/seconds" onClick={handleMenuClick}>Seconds</Link></li>}
           <li><Link href="/about" onClick={handleMenuClick}>About</Link></li>
           <li><Link href="/contact" onClick={handleMenuClick}>Contact</Link></li>
         </ul>

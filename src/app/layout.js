@@ -3,6 +3,7 @@ import "./styles/globals.scss";
 import Header from './components/Header/Header'; 
 import Footer from './components/Footer/Footer';
 import { CartProvider } from './components/Context/CartContext';
+import { showEcommerce } from '../lib/flags';
 
 const moderustic = localFont({
   src: [
@@ -19,7 +20,10 @@ export const metadata = {
   description: "Ceramics that are fun to look at and fun to use",
 };
 
-export default function RootLayout({ children }) {
+// ecommerce flag passed as child to accommodate its server-side rendering for client components
+export default async function RootLayout({ children }) {
+  const ecommerceEnabled = await showEcommerce();
+
   return (
     <html lang="en">
       <head>
@@ -27,7 +31,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${moderustic.className} flex flex-col min-h-screen`}>
         <CartProvider>
-          <Header />
+          <Header ecommerceEnabled={ecommerceEnabled} />
           <main className="flex-grow">
             {children}
           </main>
