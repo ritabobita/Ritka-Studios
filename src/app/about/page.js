@@ -22,7 +22,7 @@ export default function About() {
               Each piece is handcrafted with care, often featuring dynamic color combinations that work together to create a harmonious whole.
               <br />
               <br />
-              You can find my latest work in my online shop; or follow along on <a href="https://www.instagram.com/ritkastudios/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">Instagram </a>
+              You can find my latest work in my <a href="https://ritkastudios.etsy.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">online shop</a>; or follow along on <a href="https://www.instagram.com/ritkastudios/" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">Instagram </a>
               to check out my process and see what I'm working on.
               </p>
         </div>

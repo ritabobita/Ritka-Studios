@@ -60,7 +60,7 @@ export default function Header({ ecommerceEnabled }) {
           </Link>
         </div>
 
-        <div className={`${styles.basket} lg:hidden relative`}>
+        {ecommerceEnabled && (<div className={`${styles.basket} lg:hidden relative`}>
           <Link href="/cart">
             <ShoppingBasket size={24} />
             {totalItems > 0 && (
@@ -69,7 +69,12 @@ export default function Header({ ecommerceEnabled }) {
               </span>
             )}
           </Link>
-        </div>
+        </div>)}
+
+        {!ecommerceEnabled && (
+          <div className={`${styles.basket} lg:hidden relative`}>
+          </div>
+        )}
 
         {/* Menu on desktop */}
         <div className={`${styles.fullMenu} w-full block flex-grow lg:flex lg:items-center lg:w-auto max-w-fit`}>
