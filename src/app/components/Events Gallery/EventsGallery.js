@@ -2,20 +2,99 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Instagram } from 'lucide-react';
+import { parseISO, format } from 'date-fns';
+import { formatInTimeZone, zonedTimeToUtc } from 'date-fns-tz';
 import styles from './EventsGallery.module.scss';
 
 const EventsGallery = () => {
   const [showNavButtons, setShowNavButtons] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [activeEvents, setActiveEvents] = useState([]);
   const galleryRef = useRef(null);
 
   const events = [
-    { id: 1, title: 'Pottery Market - Downtown', date: 'September 15, 2024', location: 'Main Street Plaza' },
-    { id: 2, title: 'Fall Craft Fair', date: 'October 3, 2024', location: 'Community Center' },
-    { id: 3, title: 'Holiday Artisan Show', date: 'December 12, 2024', location: 'Convention Hall' },
-    { id: 4, title: 'Spring Pottery Workshop', date: 'March 20, 2025', location: 'Studio Gallery' }
+    { 
+      id: 1, 
+      title: 'Pottery Market - Downtown', 
+      date: '2025-09-15', 
+      startTime: '10:00', 
+      endTime: '16:00', 
+      timezone: 'America/New_York',
+      location: 'Main Street Plaza' 
+    },
+    { 
+      id: 2, 
+      title: 'Fall Craft Fair', 
+      date: '2025-09-04', 
+      startTime: '09:00', 
+      endTime: '17:38', 
+      timezone: 'America/New_York',
+      location: 'Community Center' 
+    },
+    { 
+      id: 3, 
+      title: 'Holiday Artisan Show', 
+      date: '2025-12-12', 
+      startTime: '11:00', 
+      endTime: '19:00', 
+      timezone: 'America/New_York',
+      location: 'Convention Hall' 
+    },
+    { 
+      id: 4, 
+      title: 'Spring Pottery Workshop', 
+      date: '2025-12-20', 
+      startTime: '12:00', 
+      endTime: '17:00', 
+      timezone: 'America/New_York',
+      location: 'Studio Gallery' 
+    }
   ];
+
+  const isEventActive = (event) => {
+    const now = new Date();
+    
+    // Create event end time string in ISO format
+    const eventEndDateTimeString = `${event.date}T${event.endTime}:00`;
+    
+    // Parse the event end time and convert it from the event's timezone to UTC
+    const eventEndDateTime = parseISO(eventEndDateTimeString);
+    const eventEndUTC = zonedTimeToUtc(eventEndDateTime, event.timezone);
+    
+    // Compare current UTC time with event end UTC time
+    return now < eventEndUTC;
+  };
+
+  const updateActiveEvents = () => {
+    const filtered = events.filter(isEventActive);
+    setActiveEvents(filtered);
+  };
+
+  const formatEventTime = (startTime, endTime) => {
+    const formatTime = (time) => {
+      const [hours, minutes] = time.split(':');
+      const hour = parseInt(hours);
+      const ampm = hour >= 12 ? 'pm' : 'am';
+      const displayHour = hour === 0 ? 12 : hour > 12 ? hour - 12 : hour;
+      return `${displayHour}:${minutes}${ampm}`;
+    };
+    
+    return `${formatTime(startTime)} - ${formatTime(endTime)}`;
+  };
+
+  const formatEventDate = (date) => {
+    // Create date object and add timezone offset to prevent day shifting
+    const [year, month, day] = date.split('-');
+    const eventDate = new Date(year, month - 1, day);
+    
+    return eventDate.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
 
   const checkScrollButtons = () => {
     if (galleryRef.current) {
@@ -29,11 +108,24 @@ const EventsGallery = () => {
   };
 
   useEffect(() => {
+    updateActiveEvents();
     checkScrollButtons();
+    
+    // Check for expired events every 30 seconds
+    const interval = setInterval(updateActiveEvents, 30000);
+    
     const handleResize = () => checkScrollButtons();
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
+
+  useEffect(() => {
+    checkScrollButtons();
+  }, [activeEvents]);
 
   const scrollLeft = () => {
     if (galleryRef.current) {
@@ -56,7 +148,7 @@ const EventsGallery = () => {
         </button>
       )}
       
-      {events.length === 0 ? (
+      {activeEvents.length === 0 ? (
         <div className={styles.noEvents}>
           <p>No events scheduled yet. Stay tuned and follow us for updates!</p>
           <a 
@@ -74,7 +166,7 @@ const EventsGallery = () => {
           className={styles.gallery}
           onScroll={checkScrollButtons}
         >
-          {events.map((event) => (
+          {activeEvents.map((event) => (
             <div key={event.id} className={styles.eventCard}>
               <div className={styles.imageContainer}>
                 <img 
@@ -85,7 +177,8 @@ const EventsGallery = () => {
               </div>
               <div className={styles.eventInfo}>
                 <h3 className={styles.eventTitle}>{event.title}</h3>
-                <p className={styles.eventDate}>{event.date}</p>
+                <p className={styles.eventDate}>{formatEventDate(event.date)}</p>
+                <p className={styles.eventTime}>{formatEventTime(event.startTime, event.endTime)}</p>
                 <p className={styles.eventLocation}>{event.location}</p>
               </div>
             </div>
