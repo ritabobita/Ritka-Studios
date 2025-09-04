@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { Instagram } from 'lucide-react';
 import styles from './EventsGallery.module.scss';
 
 const EventsGallery = () => {
@@ -55,28 +56,42 @@ const EventsGallery = () => {
         </button>
       )}
       
-      <div 
-        ref={galleryRef}
-        className={styles.gallery}
-        onScroll={checkScrollButtons}
-      >
-        {events.map((event) => (
-          <div key={event.id} className={styles.eventCard}>
-            <div className={styles.imageContainer}>
-              <img 
-                src="/images/300x375.svg" 
-                alt={event.title}
-                className={styles.eventImage}
-              />
+      {events.length === 0 ? (
+        <div className={styles.noEvents}>
+          <p>No events scheduled yet. Stay tuned and follow us for updates!</p>
+          <a 
+            href="https://www.instagram.com/ritkastudios/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.instagramLink}
+          >
+            <Instagram size={24} />
+          </a>
+        </div>
+      ) : (
+        <div 
+          ref={galleryRef}
+          className={styles.gallery}
+          onScroll={checkScrollButtons}
+        >
+          {events.map((event) => (
+            <div key={event.id} className={styles.eventCard}>
+              <div className={styles.imageContainer}>
+                <img 
+                  src="/images/300x375.svg" 
+                  alt={event.title}
+                  className={styles.eventImage}
+                />
+              </div>
+              <div className={styles.eventInfo}>
+                <h3 className={styles.eventTitle}>{event.title}</h3>
+                <p className={styles.eventDate}>{event.date}</p>
+                <p className={styles.eventLocation}>{event.location}</p>
+              </div>
             </div>
-            <div className={styles.eventInfo}>
-              <h3 className={styles.eventTitle}>{event.title}</h3>
-              <p className={styles.eventDate}>{event.date}</p>
-              <p className={styles.eventLocation}>{event.location}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       {showNavButtons && canScrollRight && (
         <button className={`${styles.navButton} ${styles.rightButton}`} onClick={scrollRight}>
