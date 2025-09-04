@@ -10,7 +10,6 @@ const EventsGallery = () => {
   const [showNavButtons, setShowNavButtons] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
-  const [activeEvents, setActiveEvents] = useState([]);
   const galleryRef = useRef(null);
 
   const events = [
@@ -28,7 +27,7 @@ const EventsGallery = () => {
       title: 'Fall Craft Fair', 
       date: '2025-09-04', 
       startTime: '09:00', 
-      endTime: '17:38', 
+      endTime: '17:41', 
       timezone: 'America/New_York',
       location: 'Community Center' 
     },
@@ -66,10 +65,8 @@ const EventsGallery = () => {
     return now < eventEndUTC;
   };
 
-  const updateActiveEvents = () => {
-    const filtered = events.filter(isEventActive);
-    setActiveEvents(filtered);
-  };
+  // Filter events on every render
+  const activeEvents = events.filter(isEventActive);
 
   const formatEventTime = (startTime, endTime) => {
     const formatTime = (time) => {
@@ -108,23 +105,10 @@ const EventsGallery = () => {
   };
 
   useEffect(() => {
-    updateActiveEvents();
     checkScrollButtons();
-    
-    // Check for expired events every 30 seconds
-    const interval = setInterval(updateActiveEvents, 30000);
-    
     const handleResize = () => checkScrollButtons();
     window.addEventListener('resize', handleResize);
-    
-    return () => {
-      clearInterval(interval);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    checkScrollButtons();
+    return () => window.removeEventListener('resize', handleResize);
   }, [activeEvents]);
 
   const scrollLeft = () => {
