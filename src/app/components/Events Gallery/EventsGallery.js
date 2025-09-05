@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { Instagram } from 'lucide-react';
 import { parseISO, format } from 'date-fns';
 import { formatInTimeZone, zonedTimeToUtc } from 'date-fns-tz';
@@ -15,20 +15,18 @@ const EventsGallery = () => {
 
   const isEventActive = (event) => {
     const now = new Date();
-    
     // Create event end time string in ISO format
     const eventEndDateTimeString = `${event.date}T${event.endTime}:00`;
-    
     // Parse the event end time and convert it from the event's timezone to UTC
     const eventEndDateTime = parseISO(eventEndDateTimeString);
     const eventEndUTC = zonedTimeToUtc(eventEndDateTime, event.timezone);
-    
     // Compare current UTC time with event end UTC time
     return now < eventEndUTC;
   };
 
-  // Filter events on every render
-  const activeEvents = EVENTS_DATA.filter(isEventActive);
+  const activeEvents = useMemo(() => {
+    return EVENTS_DATA.filter(isEventActive);
+  }, []);
 
   const formatEventTime = (startTime, endTime) => {
     const formatTime = (time) => {
@@ -43,7 +41,6 @@ const EventsGallery = () => {
   };
 
   const formatEventDate = (date) => {
-    // Create date object and add timezone offset to prevent day shifting
     const [year, month, day] = date.split('-');
     const eventDate = new Date(year, month - 1, day);
     
