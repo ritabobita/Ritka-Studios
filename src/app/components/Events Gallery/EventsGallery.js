@@ -42,41 +42,47 @@ const formatEventDate = (date) => {
   });
 };
 
+const getSlideState = (element) => {
+  if (!element) return { showNav: false, canLeft: false, canRight: false };
+  const { scrollLeft, scrollWidth, clientWidth } = element;
+  return {
+    showNav: scrollWidth > clientWidth,
+    canLeft: scrollLeft > 0,
+    canRight: scrollLeft < scrollWidth - clientWidth - 1
+  };
+};
+
 const EventsGallery = () => {
   const [showNavButtons, setShowNavButtons] = useState(false);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
+  const [canSlideLeft, setCanSlideLeft] = useState(false);
+  const [canSlideRight, setCanSlideRight] = useState(false);
   const galleryRef = useRef(null);
 
   const activeEvents = useMemo(() => {
     return EVENTS_DATA.filter(isEventActive);
   }, []);
 
-  const checkScrollButtons = () => {
-    if (galleryRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = galleryRef.current;
-      const needsNavigation = scrollWidth > clientWidth;
-      
-      setShowNavButtons(needsNavigation);
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 1);
-    }
+  const checkSlideButtons = () => {
+    const slideState = getSlideState(galleryRef.current);
+    setShowNavButtons(slideState.showNav);
+    setCanSlideLeft(slideState.canLeft);
+    setCanSlideRight(slideState.canRight);
   };
 
   useEffect(() => {
-    checkScrollButtons();
-    const handleResize = () => checkScrollButtons();
+    checkSlideButtons();
+    const handleResize = () => checkSlideButtons();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [activeEvents]);
 
-  const scrollLeft = () => {
+  const slideLeft = () => {
     if (galleryRef.current) {
       galleryRef.current.scrollBy({ left: -320, behavior: 'smooth' });
     }
   };
 
-  const scrollRight = () => {
+  const slideRight = () => {
     if (galleryRef.current) {
       galleryRef.current.scrollBy({ left: 320, behavior: 'smooth' });
     }
@@ -85,8 +91,8 @@ const EventsGallery = () => {
   return (
     <div className={styles.EventsGalleryContainer}>
       <h2 className={styles.header}>Upcoming Events</h2>
-      {showNavButtons && canScrollLeft && (
-        <button className={`${styles.navButton} ${styles.leftButton}`} onClick={scrollLeft}>
+      {showNavButtons && canSlideLeft && (
+        <button className={`${styles.navButton} ${styles.leftButton}`} onClick={slideLeft}>
           &#8249;
         </button>
       )}
@@ -107,7 +113,7 @@ const EventsGallery = () => {
         <div 
           ref={galleryRef}
           className={styles.gallery}
-          onScroll={checkScrollButtons}
+          onScroll={checkSlideButtons}
         >
           {activeEvents.map((event) => (
             <div key={event.id} className={styles.eventCard}>
@@ -129,8 +135,8 @@ const EventsGallery = () => {
         </div>
       )}
 
-      {showNavButtons && canScrollRight && (
-        <button className={`${styles.navButton} ${styles.rightButton}`} onClick={scrollRight}>
+      {showNavButtons && canSlideRight && (
+        <button className={`${styles.navButton} ${styles.rightButton}`} onClick={slideRight}>
           &#8250;
         </button>
       )}
