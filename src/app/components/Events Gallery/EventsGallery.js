@@ -76,15 +76,10 @@ const EventsGallery = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, [activeEvents]);
 
-  const slideLeft = () => {
+  const handleSlide = (direction) => {
     if (galleryRef.current) {
-      galleryRef.current.scrollBy({ left: -320, behavior: 'smooth' });
-    }
-  };
-
-  const slideRight = () => {
-    if (galleryRef.current) {
-      galleryRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+      const slideAmount = direction === 'left' ? -320 : 320;
+      galleryRef.current.scrollBy({ left: slideAmount, behavior: 'smooth' });
     }
   };
 
@@ -92,7 +87,7 @@ const EventsGallery = () => {
     <div className={styles.EventsGalleryContainer}>
       <h2 className={styles.header}>Upcoming Events</h2>
       {showNavButtons && canSlideLeft && (
-        <button className={`${styles.navButton} ${styles.leftButton}`} onClick={slideLeft}>
+        <button className={`${styles.navButton} ${styles.leftButton}`} onClick={() => handleSlide('left')}>
           &#8249;
         </button>
       )}
@@ -136,7 +131,7 @@ const EventsGallery = () => {
       )}
 
       {showNavButtons && canSlideRight && (
-        <button className={`${styles.navButton} ${styles.rightButton}`} onClick={slideRight}>
+        <button className={`${styles.navButton} ${styles.rightButton}`} onClick={() => handleSlide('right')}>
           &#8250;
         </button>
       )}
