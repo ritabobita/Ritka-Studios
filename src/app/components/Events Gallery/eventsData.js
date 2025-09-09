@@ -4,38 +4,46 @@
 export const EVENTS_DATA = [
   { 
     id: 1, 
-    title: 'Pottery Market - Downtown', 
-    date: '2025-09-15', 
-    startTime: '10:00', 
-    endTime: '16:00', 
-    timezone: 'America/New_York',
-    location: 'Main Street Plaza' 
-  },
-  { 
-    id: 2, 
-    title: 'Fall Craft Fair', 
-    date: '2025-09-04', 
-    startTime: '09:00', 
-    endTime: '17:41', 
-    timezone: 'America/New_York',
-    location: 'Community Center' 
-  },
-  { 
-    id: 3, 
-    title: 'Holiday Artisan Show', 
-    date: '2025-12-12', 
-    startTime: '11:00', 
-    endTime: '19:00', 
-    timezone: 'America/New_York',
-    location: 'Convention Hall' 
-  },
-  { 
-    id: 4, 
-    title: 'Spring Pottery Workshop', 
-    date: '2025-12-20', 
+    title: 'Riverbend District Festival', 
+    date: '2025-09-13', 
     startTime: '12:00', 
     endTime: '17:00', 
     timezone: 'America/New_York',
-    location: 'Studio Gallery' 
+    location: 'The Riverbend Park - Harrison, NJ',
+    img: '/images/Riverbend-Festival2025.png',
+    url: 'https://mainstreetpops.com/?event=riverbend-district-block-party-artisan-market-2'
+  },
+  { 
+    id: 2, 
+    title: 'Tenafly Fall Festival', 
+    date: '2025-10-19', 
+    startTime: '12:00', 
+    endTime: '17:00', 
+    timezone: 'America/New_York',
+    location: 'Huyler Park - Tenafly, NJ',
+    img: '/images/tenafly-fall-fest-2025.jpeg',
+    url: 'https://mainstreetpops.com/?event=tenafly-fall-fest-2'
+  },
+  { 
+    id: 3, 
+    title: 'Montclair Flea Holiday Market', 
+    date: '2025-11-29', 
+    startTime: '11:00', 
+    endTime: '18:00', 
+    timezone: 'America/New_York',
+    location: 'Lackawanna Plaza - Montclair, NJ',
+    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
+    url: 'https://www.montclairflea.com/events'
+  },
+  { 
+    id: 4, 
+    title: 'Montclair Flea Holiday Market', 
+    date: '2025-12-20', 
+    startTime: '11:00', 
+    endTime: '16:00',
+    timezone: 'America/New_York',
+    location: 'Lackawanna Plaza - Montclair, NJ',
+    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
+    url: 'https://www.montclairflea.com/events'
   }
 ];

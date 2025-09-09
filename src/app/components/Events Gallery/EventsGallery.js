@@ -111,10 +111,16 @@ const EventsGallery = () => {
           onScroll={checkSlideButtons}
         >
           {activeEvents.map((event) => (
-            <div key={event.id} className={styles.eventCard}>
+            <a 
+              key={event.id} 
+              href={event.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.eventCard}
+            >
               <div className={styles.imageContainer}>
                 <img 
-                  src="/images/300x375.svg" 
+                  src={event.img} 
                   alt={event.title}
                   className={styles.eventImage}
                 />
@@ -125,7 +131,7 @@ const EventsGallery = () => {
                 <p className={styles.eventTime}>{formatEventTime(event.startTime, event.endTime)}</p>
                 <p className={styles.eventLocation}>{event.location}</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       )}
