@@ -23,11 +23,12 @@
         grid-gap: 2rem;
         max-width: 800px;
         width: 100%;
-        margin-bottom: 3rem;
+        margin-bottom: 7rem;
 
         @media (max-width: 768px) {
             grid-gap: 1.5rem;
             max-width: 500px;
+            margin-bottom: 3rem;
         }
 
         @media (max-width: 480px) {
@@ -61,10 +62,19 @@
         }
     }
 
-    .ctaContainer {
+    .ctaSection {
         display: flex;
+        align-items: center;
         justify-content: center;
         width: 100%;
+        gap: 2rem;
+
+        .divider {
+            flex: 1;
+            height: 1px;
+            background-color: lightgray;
+            max-width: 100%;
+        }
     }
 
     .ctaButton {
@@ -80,6 +90,10 @@
         &:hover {
             background-color: black;
             color: white;
+        }
+
+        @media (max-width: 768px) {
+            text-align: center;
         }
 
         @media (max-width: 480px) {

@@ -27,7 +27,8 @@ export default function StaticWorkGallery() {
         ))}
       </div>
 
-      <div className={styles.ctaContainer}>
+      <div className={styles.ctaSection}>
+        <div className={styles.divider}></div>
         <a 
           href="https://ritkastudios.etsy.com" 
           target="_blank" 
@@ -36,6 +37,7 @@ export default function StaticWorkGallery() {
         >
           Shop My Latest Work on Etsy
         </a>
+        <div className={styles.divider}></div>
       </div>
     </section>
   );
