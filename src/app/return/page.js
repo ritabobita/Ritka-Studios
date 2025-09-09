@@ -1,9 +1,16 @@
+import { notFound } from 'next/navigation';
+import { showEcommerce } from '../../lib/flags';
 import SuccessSection from '../components/SuccessSection'
 import { redirect } from 'next/navigation'
 import Stripe from 'stripe'
 
 // This is already a server component by default since it's a page.js file
 export default async function Return({ searchParams }) {
+  const ecommerceEnabled = await showEcommerce();
+
+  if (!ecommerceEnabled) {
+    notFound();
+  }
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
   const { session_id } = await searchParams
 
