@@ -105,9 +105,9 @@ const EventsGallery = () => {
           </a>
         </div>
       ) : (
-        <div 
+        <div
           ref={galleryRef}
-          className={styles.gallery}
+          className={`${styles.gallery} ${showNavButtons ? styles.scrollable : ''}`}
           onScroll={checkSlideButtons}
         >
           {activeEvents.map((event) => (
