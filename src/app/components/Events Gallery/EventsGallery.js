@@ -138,14 +138,14 @@ const EventsGallery = () => {
                 onClick={() => handleSlide('left')}
                 disabled={!canSlideLeft}
               >
-                &#8249;
+                <img src="/svg/left-arrow.svg" alt="Previous" width="16" height="16" />
               </button>
               <button
                 className={styles.navButton + ' ' + styles.rightButton}
                 onClick={() => handleSlide('right')}
                 disabled={!canSlideRight}
               >
-                &#8250;
+                <img src="/svg/right-arrow.svg" alt="Next" width="16" height="16" />
               </button>
             </div>
           )}
