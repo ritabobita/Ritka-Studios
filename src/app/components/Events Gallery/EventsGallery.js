@@ -86,18 +86,13 @@ const EventsGallery = () => {
   return (
     <div className={styles.EventsGalleryContainer}>
       <h2 className={styles.header}>Upcoming Events</h2>
-      {showNavButtons && canSlideLeft && (
-        <button className={`${styles.navButton} ${styles.leftButton}`} onClick={() => handleSlide('left')}>
-          &#8249;
-        </button>
-      )}
-      
+
       {activeEvents.length === 0 ? (
         <div className={styles.noEvents}>
           <p>No events scheduled yet. Stay tuned and follow us for updates!</p>
-          <a 
-            href="https://www.instagram.com/ritkastudios/" 
-            target="_blank" 
+          <a
+            href="https://www.instagram.com/ritkastudios/"
+            target="_blank"
             rel="noopener noreferrer"
             className={styles.instagramLink}
           >
@@ -105,41 +100,56 @@ const EventsGallery = () => {
           </a>
         </div>
       ) : (
-        <div
-          ref={galleryRef}
-          className={`${styles.gallery} ${showNavButtons ? styles.scrollable : ''}`}
-          onScroll={checkSlideButtons}
-        >
-          {activeEvents.map((event) => (
-            <a 
-              key={event.id} 
-              href={event.url} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.eventCard}
-            >
-              <div className={styles.imageContainer}>
-                <img 
-                  src={event.img} 
-                  alt={event.title}
-                  className={styles.eventImage}
-                />
-              </div>
-              <div className={styles.eventInfo}>
-                <h3 className={styles.eventTitle}>{event.title}</h3>
-                <p className={styles.eventDate}>{formatEventDate(event.date)}</p>
-                <p className={styles.eventTime}>{formatEventTime(event.startTime, event.endTime)}</p>
-                <p className={styles.eventLocation}>{event.location}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      )}
+        <>
+          <div
+            ref={galleryRef}
+            className={`${styles.gallery} ${showNavButtons ? styles.scrollable : ''}`}
+            onScroll={checkSlideButtons}
+          >
+            {activeEvents.map((event) => (
+              <a
+                key={event.id}
+                href={event.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.eventCard}
+              >
+                <div className={styles.imageContainer}>
+                  <img
+                    src={event.img}
+                    alt={event.title}
+                    className={styles.eventImage}
+                  />
+                </div>
+                <div className={styles.eventInfo}>
+                  <h3 className={styles.eventTitle}>{event.title}</h3>
+                  <p className={styles.eventDate}>{formatEventDate(event.date)}</p>
+                  <p className={styles.eventTime}>{formatEventTime(event.startTime, event.endTime)}</p>
+                  <p className={styles.eventLocation}>{event.location}</p>
+                </div>
+              </a>
+            ))}
+          </div>
 
-      {showNavButtons && canSlideRight && (
-        <button className={`${styles.navButton} ${styles.rightButton}`} onClick={() => handleSlide('right')}>
-          &#8250;
-        </button>
+          {showNavButtons && (
+            <div className={styles.navControls}>
+              <button
+                className={styles.navButton + ' ' + styles.leftButton}
+                onClick={() => handleSlide('left')}
+                disabled={!canSlideLeft}
+              >
+                &#8249;
+              </button>
+              <button
+                className={styles.navButton + ' ' + styles.rightButton}
+                onClick={() => handleSlide('right')}
+                disabled={!canSlideRight}
+              >
+                &#8250;
+              </button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );
