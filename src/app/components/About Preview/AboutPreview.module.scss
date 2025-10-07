@@ -21,8 +21,30 @@
             align-items: center;
 
             p {
-                width: 18rem;
+                width: 22rem;
             }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .aboutPreviewHeader {
+            font-size: 2.6rem;
+        }
+    }
+
+    @media (max-width: 375px) {
+        .aboutPreviewHeader {
+            font-size: 2.4rem;
+        }
+
+        .AboutContent p {
+            width: 20rem;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .AboutContent p {
+            width: 17rem;
         }
     }
 

@@ -58,7 +58,7 @@
         }
 
         @media (max-width: 480px) {
-            height: 200px;
+            height: 240px;
         }
     }
 
@@ -124,5 +124,13 @@
 
     @media (max-width: 768px) {
         margin: 5rem 0 3.5rem 0;
+    }
+
+    @media (max-width: 480px) {
+        margin: unset;
+
+        .gallery {
+            margin-bottom: 4rem;
+        }
     }
 }
