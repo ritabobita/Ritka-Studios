@@ -25,4 +25,15 @@
             }
         }
     }
+
+    @media (min-width: 2560px) {
+        .aboutPreviewHeader {
+            font-size: 5rem;
+        }
+
+        .AboutContent p {
+            font-size: 2rem;
+            width: 90rem;
+        }
+    }
 }

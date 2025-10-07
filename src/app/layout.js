@@ -35,7 +35,7 @@ export default async function RootLayout({ children }) {
           <main className="flex-grow">
             {children}
           </main>
-          <Footer />
+          <Footer ecommerceEnabled={ecommerceEnabled} />
         </CartProvider>
       </body>
     </html>

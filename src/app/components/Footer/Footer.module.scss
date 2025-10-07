@@ -6,4 +6,38 @@ footer {
       .quickLinks {
         width: 20%;
       }
+
+      @media (min-width: 2560px) {
+        .footerContainer {
+          .logo {
+            img {
+              width: 160px !important;
+            }
+          }
+
+          .quickLinks {
+            ul {
+              li {
+                a {
+                  font-size: 1.75rem;
+                }
+              }
+            }
+          }
+
+          .instagramLogo {
+            a {
+              svg {
+                width: 2.4rem;
+                height: 2.4rem;
+              }
+            }
+          }
+
+          .copyright {
+            margin-top: 1rem;
+            font-size: 1rem;
+          }
+        }
+      }
 }

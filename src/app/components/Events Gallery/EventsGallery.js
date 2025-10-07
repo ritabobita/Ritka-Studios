@@ -82,11 +82,13 @@ const EventsGallery = () => {
       const getScrollDistance = () => {
         const screenWidth = window.innerWidth;
         if (screenWidth <= 480) {
-          return 280;
+          return 280; // 260px card + 20px gap
         } else if (screenWidth <= 768) {
-          return 300;
+          return 300; // 280px card + 20px gap
+        } else if (screenWidth >= 2560) {
+          return 420; // 400px card + 20px gap
         } else {
-          return 320;
+          return 320; // 300px card + 20px gap
         }
       };
 

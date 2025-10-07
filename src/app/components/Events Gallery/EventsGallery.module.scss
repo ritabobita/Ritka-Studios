@@ -153,6 +153,40 @@
     }
   }
 
+  @media (min-width: 2560px) {
+    .header {
+      font-size: 4.5rem;
+    }
+
+    .eventCard {
+      flex: 0 0 400px;
+    }
+
+    .imageContainer {
+      height: 320px;
+    }
+
+    .eventInfo {
+      padding: 30px;
+    }
+
+    .eventTitle {
+      font-size: 2rem;
+    }
+
+    .eventDate {
+      font-size: 1.5rem;
+    }
+
+    .eventTime {
+      font-size: 1.5rem;
+    }
+
+    .eventLocation {
+      font-size: 1.4rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .gallery {
       padding: 20px 20px;

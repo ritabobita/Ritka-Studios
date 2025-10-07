@@ -35,12 +35,6 @@ export default function VideoHero() {
           <p className="mt-4 text-lg md:text-xl max-w-3xl">
             Explore our handcrafted pottery
           </p>
-          {/* <a 
-            href="#" 
-            className="mt-8 inline-block px-8 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            Explore
-          </a> */}
         </div>
       </div>
     </section>

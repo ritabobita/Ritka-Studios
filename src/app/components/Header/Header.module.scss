@@ -39,6 +39,27 @@
     display: none;
   }
 
+  @media (min-width: 2560px) {
+    .fullMenu {
+      ul {
+        li{
+          margin-right: 2rem;
+
+          a {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+
+    .logo {
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
   @media (max-width: 768px) {
     .logo {
       img {
