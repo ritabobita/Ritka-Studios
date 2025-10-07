@@ -45,9 +45,15 @@
         }
     }
 
+    @media (max-width: 768px) {
+      p {
+        width: 35rem;
+      } 
+    }
+
     @media (max-width: 425px) {
       p {
-        width: 100%;
+        width: 21rem;
       } 
 
       .ContactPage__container {
