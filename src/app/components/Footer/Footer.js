@@ -27,15 +27,14 @@ export default function Footer({ ecommerceEnabled }) {
             </ul>
           </div>
           
-          <div className={`${styles.instagramLogo} flex flex-col justify-center items-center mt-3`}>
-            {/* <h3 className="text-xs font-semibold mb-3">See What We're Up To</h3> */}
+          <div className={`${styles.instagramLogo} flex flex-col justify-center items-center mt-2`}>
               <a href="https://www.instagram.com/ritkastudios/" target="_blank" rel="noopener">
                 <Instagram size={24} />
               </a>
           </div>
         </div>
         
-        <div className={`${styles.copyright} text-xs text-center mt-4`}>
+        <div className={`${styles.copyright} text-xs text-center mt-2`}>
           © {new Date().getFullYear()} Ritka Studios. All rights reserved.
         </div>
       </div>

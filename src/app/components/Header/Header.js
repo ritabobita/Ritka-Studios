@@ -47,7 +47,7 @@ export default function Header({ ecommerceEnabled }) {
 
   return (
     <header className={styles.header}>
-      <nav className="flex items-center justify-between flex-wrap bg-transparent pl-6 pr-9">
+      <nav className="flex items-center justify-between flex-wrap bg-transparent pl-6 pr-6">
 
         {/* Menu Icon on tablet and mobile */}
         <div className={`${styles.hamburger}`}>
@@ -78,7 +78,7 @@ export default function Header({ ecommerceEnabled }) {
 
         {/* Menu on desktop */}
         <div className={`${styles.fullMenu} w-full block flex-grow lg:flex lg:items-center lg:w-auto max-w-fit`}>
-          <ul className={`${styles.navLinks} text-sm lg:flex-grow mr-4`}>
+          <ul className={`${styles.navLinks} text-sm lg:flex-grow`}>
             <li className="block mt-4 lg:inline-block lg:mt-0 mr-4">
               <Link href="/">Home</Link>
             </li>
