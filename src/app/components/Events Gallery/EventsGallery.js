@@ -134,18 +134,18 @@ const EventsGallery = () => {
           {showNavButtons && (
             <div className={styles.navControls}>
               <button
-                className={styles.navButton + ' ' + styles.leftButton}
+                className={styles.navButton}
                 onClick={() => handleSlide('left')}
                 disabled={!canSlideLeft}
               >
-                <img src="/svg/left-arrow.svg" alt="Previous" width="16" height="16" />
+                <img src="/svg/left-arrow.svg" alt="Previous" width="50" height="50" />
               </button>
               <button
-                className={styles.navButton + ' ' + styles.rightButton}
+                className={styles.navButton}
                 onClick={() => handleSlide('right')}
                 disabled={!canSlideRight}
               >
-                <img src="/svg/right-arrow.svg" alt="Next" width="16" height="16" />
+                <img src="/svg/right-arrow.svg" alt="Next" width="50" height="50" />
               </button>
             </div>
           )}

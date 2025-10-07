@@ -120,7 +120,7 @@
   .navControls {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 40px;
     margin-top: 20px;
   }
 
@@ -128,9 +128,7 @@
     width: 40px;
     height: 40px;
     border: none;
-    border-radius: 50%;
     background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     cursor: pointer;
     font-size: 20px;
     font-weight: bold;
@@ -139,13 +137,6 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    padding-bottom: 4px;
-
-    &:hover {
-      background: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transform: scale(1.1);
-    }
 
     &:active {
       transform: scale(0.95);
@@ -158,19 +149,8 @@
       &:hover {
         transform: none;
         background: rgba(255, 255, 255, 0.9);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       }
     }
-  }
-
-  .rightButton {
-    margin-left: 10px;
-    padding-left: 2px;
-  }
-
-  .leftButton {
-    margin-right: 10px;
-    padding-right: 2px;
   }
 
   @media (max-width: 768px) {

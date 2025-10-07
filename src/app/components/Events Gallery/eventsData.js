@@ -46,4 +46,49 @@ export const EVENTS_DATA = [
     img: '/images/Montclair-Flea-Holiday-2025.jpeg',
     url: 'https://www.montclairflea.com/events'
   }
+  ,
+  { 
+    id: 5, 
+    title: 'Montclair Flea Holiday Market', 
+    date: '2025-12-20', 
+    startTime: '11:00', 
+    endTime: '18:00',
+    timezone: 'America/New_York',
+    location: 'Lackawanna Plaza - Montclair, NJ',
+    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
+    url: 'https://www.montclairflea.com/events'
+  },
+  { 
+    id: 6, 
+    title: 'Montclair Flea Holiday Market', 
+    date: '2025-12-20', 
+    startTime: '11:00', 
+    endTime: '18:00',
+    timezone: 'America/New_York',
+    location: 'Lackawanna Plaza - Montclair, NJ',
+    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
+    url: 'https://www.montclairflea.com/events'
+  },
+  { 
+    id: 7, 
+    title: 'Montclair Flea Holiday Market', 
+    date: '2025-12-20', 
+    startTime: '11:00', 
+    endTime: '18:00',
+    timezone: 'America/New_York',
+    location: 'Lackawanna Plaza - Montclair, NJ',
+    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
+    url: 'https://www.montclairflea.com/events'
+  },
+  { 
+    id: 8, 
+    title: 'Montclair Flea Holiday Market', 
+    date: '2025-12-20', 
+    startTime: '11:00', 
+    endTime: '18:00',
+    timezone: 'America/New_York',
+    location: 'Lackawanna Plaza - Montclair, NJ',
+    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
+    url: 'https://www.montclairflea.com/events'
+  }
 ];
