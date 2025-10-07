@@ -78,7 +78,19 @@ const EventsGallery = () => {
 
   const handleSlide = (direction) => {
     if (galleryRef.current) {
-      const slideAmount = direction === 'left' ? -320 : 320;
+      // Calculate scroll distance based on screen width and card size
+      const getScrollDistance = () => {
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 480) {
+          return 280;
+        } else if (screenWidth <= 768) {
+          return 300;
+        } else {
+          return 320;
+        }
+      };
+
+      const slideAmount = direction === 'left' ? -getScrollDistance() : getScrollDistance();
       galleryRef.current.scrollBy({ left: slideAmount, behavior: 'smooth' });
     }
   };
