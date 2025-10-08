@@ -1,15 +1,11 @@
 #videoHero {
-    height: 70vh;
+    height: 83vh;
 
     @media only screen and (min-width: 2560px) {
-        height: 70vh;
-
-        h1 {
-            font-size: 5rem;
-        }
-
+        height: 87vh;
         p {
-            font-size: 2rem;
+            font-size: 2.2rem;
+            margin: 2rem auto;
         }
     }
 }

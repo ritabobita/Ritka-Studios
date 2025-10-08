@@ -20,8 +20,8 @@ export default function VideoHero() {
         alt="Description"
       />
       
-      <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto">
-        <source src="/videos/HeroVideoPlaceholder2.mp4" type="video/mp4" />
+      <video className="absolute inset-0 w-full h-full object-cover object-bottom" autoPlay muted loop playsInline preload="auto">
+        <source src="/videos/HeroVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -29,7 +29,7 @@ export default function VideoHero() {
 
       <div className="relative z-10 px-4 mx-auto max-w-screen-xl h-full flex items-center justify-center">
         <div className="text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-6xl 2xl:text-8xl font-bold tracking-tight">
           Welcome to Ritka Studios
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl">
