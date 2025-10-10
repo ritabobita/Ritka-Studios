@@ -10,12 +10,10 @@ export async function POST(request) {
       from: 'Contact Form <onboarding@resend.dev>',
       to: 'ritkastudios@gmail.com',
       replyTo: email,
-      subject: subject || 'New Contact Form Submission',
+      subject: subject || 'Contact Form Inquiry',
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${firstname} ${lastname}</p>
+        <p><strong>Name:</strong> ${firstname} ${lastname}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `
