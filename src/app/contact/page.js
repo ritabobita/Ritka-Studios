@@ -1,10 +1,40 @@
 'use client';
+import { useState } from 'react';
 import styles from './contact.module.scss';
 
 export default function Contact() {
-    const handleSubmit = (event) => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-      console.log("form submitted")
+        setIsSubmitting(true);
+
+        const formData = new FormData(event.target);
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    firstname: formData.get('firstname'),
+                    lastname: formData.get('lastname'),
+                    email: formData.get('email'),
+                    subject: formData.get('subject'),
+                    message: formData.get('message')
+                })
+            });
+
+            if (response.ok) {
+                alert('Message sent successfully! I\'ll get back to you soon.');
+                event.target.reset();
+            } else {
+                alert('Failed to send message. Please try again.');
+            }
+        } catch (error) {
+            alert('Failed to send message. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -34,7 +64,7 @@ export default function Contact() {
             <label htmlFor="message">Message</label>
             <textarea id="message" name="message" placeholder="Write something.." style={{ height: '200px' }}></textarea>
 
-            <input type="submit" value="Submit" />
+            <input type="submit" value={isSubmitting ? "Sending..." : "Submit"} disabled={isSubmitting} />
           </form>
         </div>
       </main>
