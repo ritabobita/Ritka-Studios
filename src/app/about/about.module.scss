@@ -8,13 +8,25 @@
             width: 20rem;
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 2560px) {
             p {
-                width: 20rem;
+                font-size: 1.3rem;
+                width: 45rem;
             }
 
             img {
-                width: 22rem
+                width: 21rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            p {
+                width: 22rem;
+                font-size: .98rem;
+            }
+
+            img {
+                width: 18rem
             }
         }
 
@@ -23,11 +35,17 @@
             align-items: center;
 
             p {
-                width: 18rem;
+                width: 20.5rem;
+            }
+        }
+
+        @media (max-width: 320px) {
+            p {
+                width: 16rem;
             }
 
             img {
-                width: 18rem;
+                width: 16rem;
             }
         }
     }
