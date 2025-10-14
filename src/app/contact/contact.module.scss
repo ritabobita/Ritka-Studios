@@ -5,8 +5,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 4rem 2rem;
-        margin: 4rem auto;
+        padding: 2rem 2rem;
+        margin: 0 auto;
         max-width: 600px;
         text-align: center;
 
@@ -62,8 +62,6 @@
         }
 
         @media (max-width: 768px) {
-            padding: 3rem 1.5rem;
-            margin: 2rem auto;
 
             .SuccessMessage__icon {
                 font-size: 4rem;
@@ -93,6 +91,10 @@
                 font-size: 1.25rem;
             }
         }
+    }
+
+    .ContactPage__content {
+      font-size: 1.25rem;
     }
 
     .ContactPage__container {
@@ -140,7 +142,52 @@
         }
     }
 
+    @media (min-width: 2560px) {
+      h1 {
+        font-size: 5rem;
+      }
+
+      .ContactPage__content {
+        font-size: 1.5rem;
+      }
+
+      .ContactPage__container {
+        form {
+          input[type=text], select, textarea {
+            font-size: 1.5rem;
+          }
+        }
+
+        label {
+          font-size: 1.5rem;
+        }
+
+        input[type=submit] {
+          font-size: 1.5rem !important;
+        }
+      }
+      
+      .SuccessMessage {
+        max-width: 700px;
+
+        .SuccessMessage__title {
+          font-size: 3rem;
+        }
+
+        .SuccessMessage__text {
+          font-size: 1.75rem;
+        }
+        
+      }
+    }
+
     @media (max-width: 768px) {
+
+      .ContactPage__content {
+        font-size: 1rem;
+        margin-top: 1.5rem;
+      }
+
       p {
         width: 35rem;
       } 
@@ -160,5 +207,11 @@
           }
         }
       }
+    }
+
+    @media (max-width: 320px) {
+      .SuccessMessage__text {
+        width: 19rem;
+      } 
     }
 }
