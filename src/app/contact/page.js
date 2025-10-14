@@ -74,7 +74,7 @@ export default function Contact() {
                 </div>
 
                 <label htmlFor="email">Email *</label>
-                <input type="text" id="email" name="email" placeholder="Your email.." required/>
+                <input type="email" id="email" name="email" placeholder="Your email.." required/>
 
                 <label htmlFor="subject">Subject</label>
                 <input type="text" id="subject" name="subject" placeholder="Your subject.." />
