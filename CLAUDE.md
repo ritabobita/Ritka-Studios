@@ -56,6 +56,36 @@ Features a 2x2 grid layout showcasing pottery work with:
 - Responsive design for all devices
 - Clean decorative line elements
 
+### 📧 Contact Form
+**Location:** `src/app/contact/`
+
+Features a functional contact form with:
+- Email validation using HTML5 `type="email"`
+- Form submission to `/api/contact` endpoint
+- Success message display after submission
+- Responsive design with Tailwind utilities
+- Mobile-optimized: Form fields stack vertically on small screens (flex-col on mobile, flex-row on sm+)
+
+### 🎨 Video Hero Section
+**Location:** `src/app/components/Video Hero/`
+
+Hero section featuring:
+- Autoplay looping video background with placeholder image fallback
+- "Shop Now" CTA button linking to Etsy shop
+- Transparent button with white border and hover effect (inverts to white background with black text)
+- Consistent button styling across site (matches contact form submit button)
+- Responsive sizing for different screen sizes
+
+### 🔗 Footer with Social Links
+**Location:** `src/app/components/Footer/`
+
+Footer includes:
+- Instagram and Etsy logo icons with hover effects
+- Instagram icon: Changes to #dd2a7b on hover
+- Etsy icon: Custom inline SVG component (`EtsyIcon.js`) that changes to #F56400 on hover
+- Smooth 0.2s color transitions
+- Both icons use simple `color` property for clean, maintainable code
+
 ## Core Technical Decisions
 
 ### ⏰ Event Timing Logic
@@ -71,9 +101,11 @@ Features a 2x2 grid layout showcasing pottery work with:
 
 ### 🎨 Styling Architecture
 - **SCSS Modules**: Component-scoped styling
-- **Nested selectors**: Clean, maintainable CSS structure  
-- **Mobile-first approach**: Responsive breakpoints at 768px and 480px
+- **Nested selectors**: Clean, maintainable CSS structure
+- **Tailwind CSS**: Used alongside SCSS for utility classes and responsive design
+- **Mobile-first approach**: Responsive breakpoints (Tailwind: sm=640px, md=768px, lg=1024px; Custom SCSS: 768px, 480px, 425px, 320px)
 - **Consistent naming**: BEM-style class naming convention
+- **Form inputs**: Styled using attribute selectors (`input[type=text]`, `input[type=email]`)
 
 ### 🚀 Performance Optimizations
 1. **Data Extraction**: Events data moved to separate file
@@ -97,14 +129,31 @@ npm run start      # Start production server
 
 ## File Structure
 ```
-src/app/components/
-├── Events Gallery/
-│   ├── EventsGallery.js           # Main component with timing logic
-│   ├── EventsGallery.module.scss  # Responsive styling
-│   └── eventsData.js              # Event data and configuration
-└── Static Work Gallery/
-    ├── StaticWorkGallery.js        # Pottery showcase component
-    └── StaticWorkGallery.module.scss # Grid layout and animations
+src/app/
+├── components/
+│   ├── Events Gallery/
+│   │   ├── EventsGallery.js           # Main component with timing logic
+│   │   ├── EventsGallery.module.scss  # Responsive styling
+│   │   └── eventsData.js              # Event data and configuration
+│   ├── Static Work Gallery/
+│   │   ├── StaticWorkGallery.js        # Pottery showcase component
+│   │   └── StaticWorkGallery.module.scss # Grid layout and animations
+│   ├── Video Hero/
+│   │   ├── VideoHero.js               # Hero section with video background
+│   │   └── VideoHero.module.scss      # Hero styling with CTA button
+│   ├── Footer/
+│   │   ├── Footer.js                  # Footer with social links
+│   │   ├── Footer.module.scss         # Footer styling with hover effects
+│   │   └── EtsyIcon.js                # Custom inline SVG component
+│   └── About Preview/
+│       ├── AboutPreview.js            # About section preview
+│       └── AboutPreview.module.scss
+├── contact/
+│   ├── page.js                        # Contact form page
+│   └── contact.module.scss            # Contact form styling
+└── api/
+    └── contact/
+        └── route.js                   # Contact form submission endpoint
 ```
 
 ## Dependencies
@@ -132,6 +181,25 @@ src/app/components/
 - State management tracks left/right scroll capabilities
 - Responsive button sizing for mobile devices
 
+### Form Validation
+- HTML5 email validation on contact form (`type="email"`)
+- Browser displays native validation tooltip for invalid emails
+- Required fields marked with asterisk (*)
+- Form prevents submission until all validations pass
+
+### Icon Components
+- **Instagram**: Uses lucide-react icon library
+- **Etsy**: Custom inline SVG component for cleaner code and easier color changes
+- Both use `fill="currentColor"` or inherit color for CSS-based color control
+- Avoids complex CSS filters for maintainability
+
+## Common Issues & Solutions
+
+### Build Errors
+- **Apostrophes in JSX**: Always escape apostrophes as `&apos;` to avoid React linting errors
+- **API Routes**: Comment out unused API routes (like `/api/prices`) to prevent build-time errors when environment variables aren't set
+- **ESLint warnings vs errors**: Warnings (like `<img>` tags or useEffect dependencies) won't block builds, but errors (like unescaped entities) will
+
 ## Future Enhancements
 - Event filtering by location or type
 - Calendar integration
@@ -141,6 +209,6 @@ src/app/components/
 
 ---
 
-**Last Updated:** Created during development session
-**Primary Features:** Dynamic event timing, responsive gallery, Etsy integration
+**Last Updated:** October 2025
+**Primary Features:** Dynamic event timing, responsive gallery, contact form, video hero CTA, footer social links with Etsy integration
 **Critical Logic:** Real-time event expiration based on EST/EDT timezone

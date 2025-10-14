@@ -46,7 +46,7 @@ export default function Contact() {
             <div className={`${styles.SuccessMessage__icon}`}>✓</div>
             <h2 className={`${styles.SuccessMessage__title}`}>Message Sent Successfully!</h2>
             <p className={`${styles.SuccessMessage__text}`}>
-              Thank you for reaching out, I will get back to you as soon as I can. In the meantime, check out what I've been up to on{' '}
+              Thank you for reaching out, I will get back to you as soon as I can. In the meantime, check out what I&apos;ve been up to on{' '}
               <a href="https://www.instagram.com/ritkastudios/" target="_blank" rel="noopener noreferrer" className={`${styles.SuccessMessage__link}`}>
                 Instagram
               </a>
@@ -58,7 +58,7 @@ export default function Contact() {
           </div>
         ) : (
           <>
-            <p className={`${styles.ContactPage__content} text-center text-md w-1/2 text-gray-500 mt-10 mx-auto`}>If you have any questions or inquiries about my work, sales, or other; please don't hesistate to reach out.</p>
+            <p className={`${styles.ContactPage__content} text-center text-md w-1/2 text-gray-500 mt-10 mx-auto`}>If you have any questions or inquiries about my work, sales, or other; please don&apos;t hesistate to reach out.</p>
             <div className={`${styles.ContactPage__container}`}>
               <form onSubmit={handleSubmit}>
                 <div className={`${styles.ContactPage__container__name} flex flex-col sm:flex-row justify-center sm:gap-8`}>
