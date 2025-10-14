@@ -5,8 +5,8 @@ export default function StaticWorkGallery() {
   const workItems = [
     { src: '/images/IMG_0586.jpg', alt: 'Handcrafted ceramic raku vase with natural textures' },
     { src: '/images/IMG_1424.jpg', alt: 'Blue ceramic colander' },
-    { src: '/images/IMG_1625.jpg', alt: 'Green glazed ceramic mug' },
-    { src: '/images/IMG_1550.jpg', alt: 'Ceramic bookends holding books' }
+    { src: '/images/IMG_2023.jpg', alt: 'Yellow glazed bowl with ribbed texture' },
+    { src: '/images/IMG_1724.jpg', alt: 'Green glazed ceramic vase' }
   ];
 
   return (
