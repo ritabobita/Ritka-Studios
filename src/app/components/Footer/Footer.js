@@ -2,6 +2,7 @@ import styles from './Footer.module.scss';
 import { Instagram } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+import EtsyIcon from './EtsyIcon';
 
 export default function Footer({ ecommerceEnabled }) {
   return (
@@ -27,9 +28,12 @@ export default function Footer({ ecommerceEnabled }) {
             </ul>
           </div>
           
-          <div className={`${styles.instagramLogo} flex flex-col justify-center items-center mt-2`}>
-              <a href="https://www.instagram.com/ritkastudios/" target="_blank" rel="noopener">
+          <div className={`${styles.socialLogos} flex flex-row justify-center items-center gap-4 mt-2`}>
+              <a href="https://www.instagram.com/ritkastudios/" target="_blank" rel="noopener noreferrer">
                 <Instagram size={24} />
+              </a>
+              <a href="https://ritkastudios.etsy.com" target="_blank" rel="noopener noreferrer">
+                <EtsyIcon size={27} />
               </a>
           </div>
         </div>

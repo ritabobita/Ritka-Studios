@@ -7,6 +7,26 @@ footer {
         width: 20%;
       }
 
+      .socialLogos {
+        a {
+          svg {
+            transition: color 0.2s ease;
+          }
+
+          &:first-child:hover {
+            svg {
+              color: #dd2a7b;
+            }
+          }
+
+          &:last-child:hover {
+            svg {
+              color: #F56400;
+            }
+          }
+        }
+      }
+
       @media (min-width: 2560px) {
         .footerContainer {
           .logo {
@@ -25,9 +45,9 @@ footer {
             }
           }
 
-          .instagramLogo {
+          .socialLogos {
             a {
-              svg {
+              svg, img {
                 width: 2.4rem;
                 height: 2.4rem;
               }
