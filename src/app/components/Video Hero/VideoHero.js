@@ -32,9 +32,14 @@ export default function VideoHero() {
           <h1 className="text-4xl md:text-6xl 2xl:text-8xl font-bold tracking-tight">
           Ritka Studios
           </h1>
-          <p className="mt-4 text-lg md:text-xl max-w-3xl">
-            Explore handcrafted pottery
-          </p>
+          <a
+            href="https://ritkastudios.etsy.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaButton}
+          >
+            Shop Now
+          </a>
         </div>
       </div>
     </section>

@@ -1,11 +1,40 @@
 #videoHero {
     height: 83vh;
 
+    .ctaButton {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 12px 20px;
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.15rem;
+        font-weight: 400;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    }
+
+    @media (max-width: 425px) {
+        .ctaButton {
+            font-size: 1.1rem;
+            padding: 8px 18px;
+            margin-top: 1rem;
+        }
+    }
+
     @media only screen and (min-width: 2560px) {
         height: 87vh;
-        p {
-            font-size: 2.2rem;
-            margin: 2rem auto;
+
+        .ctaButton {
+            font-size: 1.8rem;
+            padding: 16px 32px;
         }
     }
 }
