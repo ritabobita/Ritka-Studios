@@ -30,10 +30,10 @@ export default function VideoHero() {
       <div className="relative z-10 px-4 mx-auto max-w-screen-xl h-full flex items-center justify-center">
         <div className="text-center text-white">
           <h1 className="text-4xl md:text-6xl 2xl:text-8xl font-bold tracking-tight">
-          Welcome to Ritka Studios
+          Ritka Studios
           </h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl">
-            Explore our handcrafted pottery
+            Explore handcrafted pottery
           </p>
         </div>
       </div>
