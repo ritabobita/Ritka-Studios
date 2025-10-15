@@ -14,12 +14,6 @@ export default function VideoHero() {
 
   return (
     <section id={styles.videoHero} className={"relative w-full overflow-hidden"}>
-      <img 
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/images/HeroImagePlaceholder.jpg" 
-        alt="Description"
-      />
-      
       <video className="absolute inset-0 w-full h-full object-cover object-bottom" autoPlay muted loop playsInline preload="auto">
         <source src="/videos/HeroVideo.mp4" type="video/mp4" />
         Your browser does not support the video tag.
