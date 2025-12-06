@@ -17,7 +17,7 @@ const moderustic = localFont({
 
 export const metadata = {
   title: "Ritka Studios",
-  description: "Ceramics that are fun to look at and fun to use",
+  description: "Discover handmade pottery by Ritka Studios. A collection featuring unique ceramics that blends playful design with everyday functionality.",
 };
 
 // ecommerce flag passed as child to accommodate its server-side rendering for client components
