@@ -3,7 +3,11 @@ import { Resend } from 'resend';
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
-  const { firstname, lastname, email, subject, message } = await request.json();
+  const { firstname, lastname, email, subject, message, honeypot } = await request.json();
+
+  if (honeypot) {
+    return Response.json({ success: true });
+  }
 
   try {
     const data = await resend.emails.send({

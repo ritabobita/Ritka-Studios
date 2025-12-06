@@ -21,7 +21,8 @@ export default function Contact() {
                     lastname: formData.get('lastname'),
                     email: formData.get('email'),
                     subject: formData.get('subject'),
-                    message: formData.get('message')
+                    message: formData.get('message'),
+                    honeypot: formData.get('website')
                 })
             });
 
@@ -81,6 +82,15 @@ export default function Contact() {
 
                 <label htmlFor="message">Message</label>
                 <textarea id="message" name="message" placeholder="Write something.." style={{ height: '200px' }}></textarea>
+
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex="-1"
+                  autoComplete="off"
+                  style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px' }}
+                  aria-hidden="true"
+                />
 
                 <input type="submit" value={isSubmitting ? "Sending..." : "Submit"} disabled={isSubmitting} />
               </form>
