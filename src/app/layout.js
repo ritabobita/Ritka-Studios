@@ -18,6 +18,27 @@ const moderustic = localFont({
 export const metadata = {
   title: "Ritka Studios",
   description: "Discover handmade pottery by Ritka Studios. A collection featuring unique ceramics that blends playful design with everyday functionality.",
+  openGraph: {
+    title: "Ritka Studios - Handmade Ceramics",
+    description: "Discover handmade pottery by Ritka Studios. A collection featuring unique ceramics that blends playful design with everyday functionality.",
+    url: 'https://ritkastudios.com',
+    siteName: 'Ritka Studios',
+    images: [
+      {
+        url: '/images/ograph-ritka.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Ritka Studios - Handmade Ceramics',
+      }
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Ritka Studios - Handmade Ceramics",
+    description: "Discover handmade pottery by Ritka Studios. A collection featuring unique ceramics that blends playful design with everyday functionality.",
+    images: ['/images/ograph-ritka.jpg'],
+  },
 };
 
 // ecommerce flag passed as child to accommodate its server-side rendering for client components
