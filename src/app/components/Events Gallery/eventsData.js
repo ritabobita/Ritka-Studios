@@ -4,35 +4,24 @@
 export const EVENTS_DATA = [
   { 
     id: 1, 
-    title: 'Tenafly Fall Festival', 
-    date: '2025-10-19', 
-    startTime: '12:00', 
+    title: 'West Orange Street Fair', 
+    date: '2026-06-06', 
+    startTime: '11:00', 
     endTime: '17:00', 
     timezone: 'America/New_York',
-    location: 'Huyler Park - Tenafly, NJ',
-    img: '/images/tenafly-fall-fest-2025.jpeg',
-    url: 'https://mainstreetpops.com/?event=tenafly-fall-fest-2'
+    location: '211 Main St. West Orange, NJ',
+    img: '/images/West-Orange-Street-Fair-Logo-002-1.jpg',
+    url: 'https://downtownwo.com/events/west-orange-street-fair/'
   },
   { 
     id: 2, 
-    title: 'Montclair Flea Holiday Market', 
-    date: '2025-11-29', 
-    startTime: '11:00', 
+    title: 'JC Handmade Market', 
+    date: '2026-07-18', 
+    startTime: '12:00', 
     endTime: '18:00', 
     timezone: 'America/New_York',
-    location: 'Lackawanna Plaza - Montclair, NJ',
-    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
-    url: 'https://www.montclairflea.com/events'
-  },
-  { 
-    id: 3, 
-    title: 'Montclair Flea Holiday Market', 
-    date: '2025-12-20', 
-    startTime: '11:00', 
-    endTime: '18:00',
-    timezone: 'America/New_York',
-    location: 'Lackawanna Plaza - Montclair, NJ',
-    img: '/images/Montclair-Flea-Holiday-2025.jpeg',
-    url: 'https://www.montclairflea.com/events'
+    location: 'Grove Street Path Plaza - Jersey City, NJ',
+    img: '/images/Jersey_City_HandmadeMarket_2026.jpeg',
+    url: 'https://jcdowntown.org/event/handmade-market/'
   }
 ];
